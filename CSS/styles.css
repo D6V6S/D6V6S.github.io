@@ -1,0 +1,42 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;800&family=Montserrat:wght@400;700&display=swap');
+
+
+:root{
+    --vio: blueviolet;
+    --bs-font-sans-serif:"Libre Franklin", sans-serif;
+}
+
+body {
+    background-color: rgba(98, 103, 131, 0.568);
+    font-family: var(--bs-font-sans-serif);
+}
+
+.nav-menu-style {
+    list-style: none;
+    font-size: 1.5em;
+    color: var(--vio);
+}
+
+.link-style  {
+    text-decoration: none;
+}
+
+.head {
+    color: var(--vio);
+    font-size: 3em;
+    text-align: center;
+
+}
+ 
+.content {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    text-decoration: none;
+    color: rgb(60, 83, 211);
+    font-size: 1em;
+    text-decoration:none;
+}
