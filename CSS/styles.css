@@ -75,7 +75,35 @@ body {
     font-weight: 700;
     color: #b69750;
     text-decoration: none;
+    margin-left: 1rem;
+    position: relative;
+    opacity: 0.7;
+    transition: opacity 0.3s cubic-bezier(0.51, 0.92, 0.24, 1);
 }
+ /* menu gradient underline start*/
+
+a::after {
+    --scale: 0;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 0.3rem;
+    background: linear-gradient(135deg, #d8e618, #00ccff);
+    transform: scaleX(var(--scale));
+    transform-origin: var(--x) 50%;
+    transition: transform 0.5s cubic-bezier(0.51, 0.92, 0.24, 1);
+}
+
+a:hover {
+    opacity: 1;
+}
+
+a:hover::after {
+    --scale: 1;
+}
+/* menu gradient underline end*/
 
 .head{
     color: var(--bs-header-color);
