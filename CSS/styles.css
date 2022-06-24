@@ -1,5 +1,7 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;800&family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;800&family=Montserrat:wght@400;700&Nunito:wght@300&family=Smooch&display=swap');
+
+
 
 
 :root{
@@ -125,16 +127,19 @@ body {
 }
 
 .navbar .nav-link{
-    font-size: 0.92rem;
+    font-size: 0.95rem;
 }
 
 .navbar-brand{
-    font-size: 1.25rem;
+    font-family: "Nunito",sans-serif;
+    font-size: 1.3rem;
     text-decoration: none;
     white-space: nowrap;
     margin-right: 1rem;
-    padding-top: .3125rem;
-    padding-bottom: .3125rem;
+    padding: 1rem 1.2rem 1rem 1.2rem;
+    border-radius: .5rem;
+    color: white;
+    background: linear-gradient(270deg, #f1da0b, #51dcff);
 }
 
 .navbar-collapse{
@@ -163,6 +168,7 @@ body {
     display: flex;
     flex-direction: column;
     padding-left: 0;
+    margin-top: 0;
     margin-bottom: 0;
 }
 
@@ -176,15 +182,17 @@ body {
     font-weight: 700;
     color: #b69750;
     text-decoration: none;
-    padding: .5rem 1rem;
-    /*margin-left: 1rem; 
-     position: relative;
+    padding: .5rem .5rem;
+    margin-left: 0.5rem; 
+    position: relative;
     opacity: 0.7;
-    transition: opacity 0.3s cubic-bezier(0.51, 0.92, 0.24, 1);*/
+    transition: opacity 0.3s cubic-bezier(0.51, 0.92, 0.24, 1); 
 }
- /* menu gradient underline start*/
+ /* menu gradient underline start
+ https://codepen.io/electerious/pen/xeJPbB
+ */
 
-/* a::after {
+.nav-link::after {
     --scale: 0;
     content: "";
     position: absolute;
@@ -192,18 +200,18 @@ body {
     right: 0;
     top: 100%;
     height: 0.3rem;
-    background: linear-gradient(135deg, #d8e618, #00ccff);
+    background: linear-gradient(270deg, #d8e618, #00ccff);
     transform: scaleX(var(--scale));
     transform-origin: var(--x) 50%;
     transition: transform 0.5s cubic-bezier(0.51, 0.92, 0.24, 1);
 }
 
-a:hover {
+.nav-link:hover {
     opacity: 1;
 }
 
-a:hover::after {
-    --scale: 1; */
+.nav-link:hover::after {
+    --scale: 1; 
 }
 /* menu gradient underline end*/
 
@@ -329,24 +337,10 @@ https: //codepen.io/abdelrhmansaid/pen/OJRNOpQ */
     color: #ffffff;
 }
 
-.wrapper .twitter:hover,
-.wrapper .twitter:hover .tooltip,
-.wrapper .twitter:hover .tooltip::before {
-    background: #1DA1F2;
-    color: #ffffff;
-}
-
 .wrapper .instagram:hover,
 .wrapper .instagram:hover .tooltip,
 .wrapper .instagram:hover .tooltip::before {
     background: #E4405F;
-    color: #ffffff;
-}
-
-.wrapper .github:hover,
-.wrapper .github:hover .tooltip,
-.wrapper .github:hover .tooltip::before {
-    background: #333333;
     color: #ffffff;
 }
 

@@ -1,52 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CodePen - Light / Dark / Black Theme</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-<link rel="stylesheet" href="./css/change-color.css">
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site: Home Page</title>
+    <meta name="description" lang="ua" content="Головна сторінка">
+    <meta name="description" lang="en" content="Main page">
+    <link rel="icon" size="16x16" href="img/icons/home.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <link rel="stylesheet" href="CSS/styles.css">
 </head>
-<body>
-<!-- partial:index.partial.html -->
-<div class="menu">
+<body class="">
+		
+    <div>
+        <!-- top navigation block -->
+        <header>
+            <div>
+                <nav>
+                    
+                    <div>
+                        <!-- Navigation -->
+                        <ul>
+                            
+                            <li><a href="index.html" class="nav-link">Home</a></li>
+                            <li><a href="about.html" class="nav-link">About</a></li>
+                            <li><a href="blog.html" class="nav-link">Blog</a></li>
+                            <li><a href="contacts.html" class="nav-link">Contacts</a></li>                 
+                        </ul>
+                        <ul>
+                            <li><a href="cart.html">Cart</a></li>
+                            <li><a href="#!">Wishlist</a></li>
+                            <li><a href="login.html">Sing in</a></li>              
+                        </ul>
+                    </div>
+                </nav>
+                
+            </div>
+        </header>
+	
+	<script  src="./js/Menu-underline.js"></script>
 
-	<div class="menu-header">
-		<h2 class="menu-header-title">Theme</h2>
-		<div class="theme-switcher">
-			<input type="radio" id="light-theme" name="themes" checked />
-			<label for="light-theme">
-				<span>
-					<i data-feather="sun"></i>Light
-				</span>
-			</label>
-			<input type="radio" id="dark-theme" name="themes" />
-			<label for="dark-theme">
-				<span>
-					<i data-feather="moon"></i>Dark
-				</span>
-			</label>
-			<input type="radio" id="black-theme" name="themes" />
-			<label for="black-theme">
-				<span>
-					<i data-feather="star"></i>Black
-				</span>
-			</label>
-			<span class="slider"></span>
-		</div>
-	</div>
-	<div class="menu-body">
-		<a href="#"><i data-feather="user"></i>Account Settings</a>
-		<a href="#"><i data-feather="message-square"></i>Give Feedback</a>
-		<a href="#"><i data-feather="info"></i>About</a>
-		<a href="#"><i data-feather="life-buoy"></i>Support</a>
-	</div>
-
-</div>
-<!-- partial -->
-  <!-- <script src='https://unpkg.com/feather-icons'></script> -->
-  <script  src="./js/chage-color.js"></script>
-
-</body>
+	</body>
 </html>
