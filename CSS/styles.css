@@ -130,6 +130,10 @@ body {
     font-size: 0.95rem;
 }
 
+.navbar .user-link {
+    font-size: 1.1rem;
+}
+
 .navbar-brand{
     font-family: "Nunito",sans-serif;
     font-size: 1.3rem;
@@ -178,6 +182,7 @@ body {
 } */
 
 .nav-link{
+    
     display: block;
     font-weight: 700;
     color: #b69750;
@@ -214,6 +219,20 @@ body {
     --scale: 1; 
 }
 /* menu gradient underline end*/
+
+.user-link {
+    display: block;
+    font-weight: 700;
+    color: #b69750;
+    text-decoration: none;
+    padding: .5rem .5rem;
+    margin-left: 0.5rem;
+}
+
+.user-link:hover {
+    color: #6f23d3;
+    scale: 1.2;
+}
 
 .head{
     color: var(--bs-header-color);
