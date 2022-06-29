@@ -18,24 +18,29 @@
         <header class="bg-wite">
             <div class="container">
                 <nav class="navbar navbar-expand">
-                    <a href="index.html" class="navbar-brand"><span>ShopLiNe Co</span></a>
+                    <a href="index.html" class="navbar-brand">
+                        <span class="text-uppercase text-dark fw-bolt">ShopLiNe Co</span>
+                    </a>
+                    <button class="navbar-toggler navbar-toggler-end collapsed">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                     <div class="navbar-collapse">
                         <!-- Navigation -->
                         <ul class="navbar-nav">
-                            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                            <li class="nav-item"><a href="shop.html" class="nav-link">Shop</a></li>
-                            <li class="nav-item"><a href="contacts.html" class="nav-link">Contacts</a></li> 
+                            <li class="nav-item"><a href="index.html" class="nav-link nav-link-underline">Home</a></li>
+                            <li class="nav-item"><a href="shop.html" class="nav-link nav-link-underline">Shop</a></li>
+                            <li class="nav-item"><a href="contacts.html" class="nav-link nav-link-underline">Contacts</a></li> 
                             <script  src="./js/Menu-underline.js"></script>                
                         </ul>
                         <ul class="navbar-nav">
                             <!-- Cart -->
-                            <li class="nav-item"><a href="cart.html" class="user-link"><i class="fas fa-dolly-flatbed"></i>
-                                <span class="amount-items-in-cart">0</span></a></li> 
+                            <li class="nav-item"><a href="cart.html" class="nav-link nav-link-underline"><i class="fa-solid fa-cart-shopping"></i>
+                                Cart <small class="text-gray fw-normal"> (2)</small></a></li> 
                             
                             <!-- Wishlist -->
-                            <li class="nav-item"><a href="#!" class="user-link"><i class="fa-regular fa-heart"></i></a></li>
+                            <li class="nav-item"><a href="#!" class="nav-link nav-link-underline"><i class="fas fa-regular fa-heart text-gray fw-normal"></i><small class="text-gray fw-normal">(0)</small></a></li>
                             <!-- Sing in -->
-                            <li class="nav-item"><a href="login.html" class="user-link"><i class="fa-regular fa-user"></i></a></li>              
+                            <li class="nav-item"><a href="login.html" class="nav-link nav-link-underline"><i class="fas fa-regular fa-user text-gray fw-normal"></i> Login</a></li>              
                         </ul>
                     </div>
                 </nav>
@@ -57,30 +62,30 @@
             <!-- Content -->
             <section class="py-5">
                 <div>
-                    <div class="contacts-row">
+                    <div class="row">
                         <!-- Our contacts -->
-                        <div class="text-center contacts-row-small">
-                            <div class="contacts-text-left">
-                                    <ul class="contacts-list">
-                                        <li class="contacts-link ">
+                        <div class="col-xl-5 col-lg-6 col-md-7 col-sm-9 text-center">
+                            <div class="text-left">
+                                    <ul class="list-inline">
+                                        <li class="reset-anchor contacts-link ">
                                             <i class="fa-solid fa-calendar-week"> Monday - Friday</i>
                                         </li>
-                                        <li class="contacts-link">
+                                        <li class=" reset-anchor contacts-link">
                                             <i class="fa-solid fa-clock text-black"> 09:00 - 18:00</i>
                                         </li>
-                                        <li class="contacts-link">
+                                        <li class="reset-anchor contacts-link">
                                             <a  href="tel:+3804411234567">
                                                 <i class="fa-solid fa-phone text-black"> +38 044 123 45 67</i></a>
                                         </li>
-                                        <li class="contacts-link">
+                                        <li class="reset-anchor contacts-link">
                                             <a href="tel:+3804411234567">
                                                 <i class="fa-solid fa-phone text-black"> +38 097 123 45 67</i></a>
                                         </li>
-                                        <li class="contacts-link">
+                                        <li class="reset-anchor contacts-link">
                                             <a href="mailto:site.owner@gmail.com">
                                                 <i class="fa-solid fa-at text-black"> site.owner@gmail.com</i></a>
                                         </li>
-                                        <li class="contacts-link">
+                                        <li class="reset-anchor contacts-link">
                                             <a target="blank" href="https://goo.gl/maps/y2B7Pfmi8Mv4kkcg9">
                                                 <i class="fa-solid fa-map-location text-black"> Kyiv, Vladimirskaya Street, 22</i> </a>
                                         </li>
@@ -88,58 +93,14 @@
                             </div>
                         </div>
 
-                        <div class="text-center contacts-row-big">
+                        <div class="col-xl-7 col-lg-8 col-md-9 col-sm-10 text-center">
                             <!-- google map -->
                             <div>
                                 <iframe 
                                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1037.681400539778!2d30.516577804179025!3d50.45311051177275!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce5b0fddaff5%3A0xe5e5b3101b07236e!2z0KHQvtGE0LjQudGB0LrQsNGPINC_0LvQvtGJ0LDQtNGM!5e0!3m2!1sru!2sua!4v1656252206762!5m2!1sru!2sua" 
-                                align="middle" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                 width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title=""></iframe>
                             </div>
                         </div>
-
-                        <!-- Our cocial media
-                        <div>
-                            <div class="pruduct text-center">
-                                <div class="mb-3">
-                                <p>Connect to our cocial media</p>  
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <img src="img/icons/facebook.png" width="25" height="25" alt="Facebook">
-                                            <a class="link-style" target="blank" href="https://www.facebook.com/"> Facebook</a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <img src="img/icons/instagram.png" width="25" height="25" alt="Instagram">
-                                            <a class="link-style" target="blank" href="https://www.instagram.com/"> Instagram</a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <img src="img/icons/Youtube.png" width="25" height="25" alt="Youtube">
-                                            <a class="link-style" target="blank" href="https://www.youtube.com/"> Youtube</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <!-- <p>Our cocial media using Font Awesome</p>  
-                            <ul>
-                                <li>
-                                    <a target="blank" href="https://www.facebook.com/">
-                                        <i class="fa-brands fa-facebook">Facebook</i></a>
-                                </li>
-                                <li>
-                                    <a target="blank" href="https://www.instagram.com/">
-                                        <i class="fa-brands fa-instagram">Instagram</i></a>
-                                </li>
-                                <li>
-                                    <a target="blank" href="https://www.youtube.com/">
-                                        <i class="fa-brands fa-youtube">Youtube</i></a>
-                                </li>
-                                <li>
-                                    <a target="blank" href="https://telegram.org/">
-                                        <i class="fa-brands fa-telegram">Telegram</i></a>
-                                </li>
-                                
-                            </ul> -->
                     </div>
                 </div>
             </section>
@@ -148,26 +109,26 @@
 
         <!-- Footer -->
         <footer class="text-white">
-            <div class="bg-gray py-2">
+            <div class="bg-gray ">
                     <div class="container row py-3">
                         <!-- Customer services -->
                         <div class="col-md-4 mb-3">
                             <h4>Customer services</h4>  
                             <ul class="list-unstyled">
-                                <li><a class="reset-anchor text-white footer-link" href="#">Help & Contact Us</a></li>
-                                <li><a class="reset-anchor text-white footer-link" href="#">Returns & Refunds</a></li>
-                                <li><a class="reset-anchor text-white footer-link" href="#">Online Stores</a></li>
-                                <li><a class="reset-anchor text-white footer-link" href="#">Terms & Conditions</a></li>
+                                <li><a class="reset-anchor text-white footer-link-move" href="#">Help & Contact Us</a></li>
+                                <li><a class="reset-anchor text-white footer-link-move" href="#">Returns & Refunds</a></li>
+                                <li><a class="reset-anchor text-white footer-link-move" href="#">Online Stores</a></li>
+                                <li><a class="reset-anchor text-white footer-link-move" href="#">Terms & Conditions</a></li>
                             </ul>
                         </div>
                         <!-- Company -->
                         <div class="col-md-4 mb-3">
                             <h4>Company</h4>  
                             <ul class="list-unstyled">
-                                <li><a class="reset-anchor text-white footer-link" href="#">What We Do</a></li>
-                                <li><a class="reset-anchor text-white footer-link" href="#">Available Services</a></li>
-                                <li><a class="reset-anchor text-white footer-link" href="#">Latest Posts</a></li>
-                                <li><a class="reset-anchor text-white footer-link" href="#">FAQs</a></li>
+                                <li><a class="reset-anchor text-white footer-link-move" href="#">What We Do</a></li>
+                                <li><a class="reset-anchor text-white footer-link-move" href="#">Available Services</a></li>
+                                <li><a class="reset-anchor text-white footer-link-move" href="#">Latest Posts</a></li>
+                                <li><a class="reset-anchor text-white footer-link-move" href="#">FAQs</a></li>
                             </ul>
                         </div>
                         <!-- Social media -->
@@ -195,14 +156,14 @@
                                 </ul>
                         </div>
                     </div>
-                    
+
                         <!-- Copy Right -->
                     <div class="bg-dark ">
                         <div class="container row">
-                            <div class="col-md-5 mb-3">
+                            <div class="col-md-5 mb-2">
                                 <p class="small text-muted">&ltdot;2022 Studies HTML5 and CSS3 &gtdot;</p>
                             </div>
-                            <div class="col-md-5 mb-3">
+                            <div class="col-md-5 mb-2">
                                 <p class="small text-muted">Template designed by My Temple</p>
                             </div>
                         </div>
