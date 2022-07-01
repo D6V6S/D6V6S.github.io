@@ -13,7 +13,8 @@ document.querySelectorAll('a').forEach(elem => {
     if (x - tolerance < left) x = left;
     if (x + tolerance > right) x = right;
 
-    elem.style.setProperty('--x', `${x}px`);
+    // elem.style.setProperty('--x', `${x}px`);
+    elem.style.setProperty('--x', `0px`);
 
   };
 

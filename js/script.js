@@ -1,7 +1,7 @@
 
 // underline menu
 
-document.querySelectorAll('a').forEach(elem => {
+document.querySelectorAll('a.nav-link-underline').forEach(elem => {
 
   elem.onmouseenter =
   elem.onmouseleave = e => {
@@ -11,7 +11,9 @@ document.querySelectorAll('a').forEach(elem => {
     const left = 0;
     const right = elem.clientWidth;
 
-    let x = e.pageX - elem.offsetLeft;
+    let pageOfset = (window.innerWidth - document.querySelector('.container').offsetWidth)/2;
+    
+    let x = e.pageX - pageOfset - elem.offsetLeft;
 
     if (x - tolerance < left) x = left;
     if (x + tolerance > right) x = right;

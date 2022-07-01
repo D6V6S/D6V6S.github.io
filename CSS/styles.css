@@ -64,8 +64,8 @@ nav{
     padding: .5rem .5rem;
     margin-left: 0.5rem;
     position: relative;
-    opacity: 0.7;
-    transition: opacity 0.3s cubic-bezier(0.51, 0.92, 0.24, 1);
+    /* opacity: 0.7;
+    transition: opacity 0.3s cubic-bezier(0.51, 0.92, 0.24, 1);  */
 }
 
 .nav-link:hover, .nav-link:focus{
@@ -134,7 +134,7 @@ nav{
 }
 
 .navbar .nav-link {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
 }
 
 .navbar-collapse {
@@ -144,9 +144,6 @@ nav{
     justify-content: space-between;
 }
 
-.navbar .nav-link {
-    font-size: 0.92rem;
-}
 
 @media (min-width:992px) {
     .navbar-brand{
@@ -190,17 +187,17 @@ nav{
      */
 
     .nav-link-underline::after {
-     --scale: 0;
-     content: "";
-     position: absolute;
-     left: 0;
-     right: 0;
-     top: 100%;
-     height: 0.3rem;
-     background: linear-gradient(270deg, #d8e618, #00ccff);
-     transform: scaleX(var(--scale));
-     transform-origin: var(--x) 50%;
-     transition: transform 0.5s cubic-bezier(0.51, 0.92, 0.24, 1);
+        --scale: 0;
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        height: 0.3rem;
+        background: linear-gradient(270deg, #d8e618, #00ccff);
+        transform: scaleX(var(--scale));
+        transform-origin: var(--x) 50%;
+        transition: transform 0.5s; 
     }
 
     .nav-link-underline:hover {
@@ -403,8 +400,8 @@ nav{
     bottom: 0;
     left: 0;
     display: flex;
-    /* justify-content: center;
-    align-items: flex-end; */
+    justify-content: center;
+    /* align-items: flex-end; */
     padding: 1rem 0;
     opacity: 0;
     transition: all 0.3s;
@@ -988,6 +985,7 @@ a:hover{
 
 .list-inline {
     list-style: none;
+
 }
 
 .list-inline-item {
@@ -1016,7 +1014,7 @@ a:hover{
     color: #94a19d;
 }
 
-/* move text */
+/* Footer move text */
 /* .footer-link-move:hover {
     padding-left: .2rem;
 }  */
@@ -1031,7 +1029,7 @@ a:hover{
 .footer-link-move:hover, 
 .footer-link-move:focus{
     padding-left: .6rem;
-    color: wite;
+    color: white;
     text-decoration: none;
 }
 
@@ -1048,10 +1046,14 @@ a:hover{
     position: absolute;
     top: 50%;
     left: 0;
-    transition: translateY(-50%);
+    transform: translateY(-50%);
     color: white;
     transition: all 0.3s;
     opacity: 0;
+}
+
+.d-none{
+    display: none;
 }
 
 .svg-icon {
@@ -1070,14 +1072,14 @@ a:hover{
 
 }
 
-.bg-green{
+/* .bg-green{
     width: 100%;
     padding: 5em 0;
 }
 
 .percents {
     background: linear-gradient(to right, rgba(0, 64, 9, 0.89) 2em, #025a1ff1 3em, rgb(6, 162, 79) 7em, rgba(60, 200, 70, 0.89) 12em);
-}
+} */
 
 /* Social media style 
 https: //codepen.io/abdelrhmansaid/pen/OJRNOpQ */
