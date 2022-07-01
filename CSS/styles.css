@@ -355,12 +355,78 @@ nav{
     transition-delay: 100ms;
 }
 
+/* prodact info */
 
+.btn{
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212131;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: 0;
+}
 
+.btn:hover{
+    color: #212529;
+}
 
+.btn-outline-indigo{
+    color: indigo;
+    border-color: indigo;
+}
+.btn-outline-indigo:hover{
+    color: white;
+    background-color: indigo;
+    border-color: indigo;
+}
 
+.btn-sm{
+    padding: .375rem .75rem;
+    font-size: 0.975rem;
+}
 
+.position-relavive{
+    position: relative;
+}
 
+.product-overlay{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    /* justify-content: center;
+    align-items: flex-end; */
+    padding: 1rem 0;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.product:hover .product-overlay{
+    opacity: 1;
+}
+
+/* img  */
+
+.product img{
+    filter: grayscale(40%);
+}
+
+.product:hover img {
+    opacity: 0.3;
+}
+
+.product-overlay ul li {
+    transition: all 0.3s;
+}
 
 /* .navbar-expand {
     flex-wrap: nowrap;
@@ -951,10 +1017,67 @@ a:hover{
 }
 
 /* move text */
-.footer-link-move:hover {
+/* .footer-link-move:hover {
     padding-left: .2rem;
-} 
+}  */
 
+.footer-link-move {
+    font-size: .85rem;
+    position: relative;
+    color: #999;
+    transition: all 0.3s;
+}
+
+.footer-link-move:hover, 
+.footer-link-move:focus{
+    padding-left: .6rem;
+    color: wite;
+    text-decoration: none;
+}
+
+.footer-link-move:hover::before,
+.footer-link-move:focus::before{
+    opacity: 1;
+}
+
+.footer-link-move::before {
+    content: '\f0da';
+    display: inline-block;
+    font-family: 'Font Awesome\ 5 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transition: translateY(-50%);
+    color: white;
+    transition: all 0.3s;
+    opacity: 0;
+}
+
+.svg-icon {
+    width: 32px;
+    height: 32px;
+    vertical-align: text-bottom;
+    stroke-width: 3;
+    stroke: #b68b23;
+}
+
+.svg-icon-big {
+
+}
+
+.svg-icon-light{
+
+}
+
+.bg-green{
+    width: 100%;
+    padding: 5em 0;
+}
+
+.percents {
+    background: linear-gradient(to right, rgba(0, 64, 9, 0.89) 2em, #025a1ff1 3em, rgb(6, 162, 79) 7em, rgba(60, 200, 70, 0.89) 12em);
+}
 
 /* Social media style 
 https: //codepen.io/abdelrhmansaid/pen/OJRNOpQ */
