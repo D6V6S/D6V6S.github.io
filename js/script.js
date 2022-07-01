@@ -20,6 +20,7 @@ document.querySelectorAll('a.nav-link-underline').forEach(elem => {
 
     elem.style.setProperty('--x', `${x}px`);
 
+    
   };
 
 });
