@@ -160,26 +160,26 @@ nav{
 
 @media (min-width:992px) {
     .navbar-expand {
-            flex-wrap: nowrap;
-            justify-content: flex-start;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
     }
 
-    .navbar-expand .navbar-nav{
-        flex-direction: row; 
+    .navbar-expand .navbar-nav {
+        flex-direction: row;
     }
 
-    .navbar-expand .navbar-collapse{
+    .navbar-expand .navbar-collapse {
         display: flex !important;
         flex-basis: auto;
     }
-    
-    .navbar-expand .navbar-nav .nav-link{
+
+    .navbar-expand .navbar-nav .nav-link {
         padding-right: .5rem;
         padding-left: .5rem;
     }
 
-    .navbar-toggler{
-        display:none;
+    .navbar-expand .navbar-toggler {
+        display: none;
     }
 
     /* menu gradient underline start
@@ -234,7 +234,7 @@ nav{
 
 }
 
-.collapsed:not(.show){
+.collapse:not(.show) {
     display: none;
 }
 
