@@ -144,7 +144,6 @@ nav{
     justify-content: space-between;
 }
 
-
 @media (min-width:992px) {
     .navbar-brand{
         position:absolute;
@@ -233,6 +232,38 @@ nav{
 .navbar-toggler-end {
 
 }
+
+
+/* .navbar-mobile {
+    display: none;
+    --navscale: 0;
+    --navheight: 0px;
+    position: relative;
+    max-height: var(--navheight);
+    transform: scaleY(var(--navscale));
+    transform-origin: top;
+    transition: transform 0.1s;
+    transition: max-height 0.5s; 
+    flex-basis: 100%;
+    flex-grow: 1;
+    
+}
+
+.navheight {
+    display: block;
+    --navscale: 1;
+    --navheight: auto;
+    position: relative;
+    max-height: var(--navheight);
+    transform: scaleY(var(--navscale));
+    transform-origin: top;
+    transition: transform 0.5s;
+    transition: max-height 0.5s;
+    flex-basis: 100%;
+    flex-grow: 1;
+} */
+
+
 
 .collapse:not(.show) {
     display: none;
