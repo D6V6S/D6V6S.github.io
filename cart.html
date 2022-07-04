@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site: Contacts</title>
+    <title>Site: Cart</title>
     <meta name="description" lang="ua" content="Головна сторінка">
     <meta name="description" lang="en" content="Main page">
     <link rel="icon" size="16x16" href="img/icons/home.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="CSS/normalize.css">
     <link rel="stylesheet" href="CSS/styles.css">
+
 </head>
-<body class="">
+<body>
     <div>
         <!-- top navigation block -->
         <header class="bg-wite">
@@ -24,30 +25,29 @@
                     <!-- <button class="navbar-toggler navbar-toggler-end collapsed">
                         <span class="navbar-toggler-icon"></span>
                     </button> -->
-                    <button class="navbar-toggler navbar-toggler-end collapsed">
+                    <button class="navbar-toggler navbar-toggler-end collapsed" >
                         <div class="icon nav-icon">
                         <span></span>
                         <span></span>
                         <span></span>
                         </div>
-                    </button>
+                    </button>                    
                     <div class="navbar-collapse collapse" id="navBar">
                         <!-- Navigation -->
                         <ul class="navbar-nav">
                             <li class="nav-item"><a href="index.html" class="nav-link nav-link-underline">Home</a></li>
                             <li class="nav-item"><a href="shop.html" class="nav-link nav-link-underline">Shop</a></li>
-                            <li class="nav-item"><a href="contacts.html" class="nav-link nav-link-underline active">Contacts</a></li> 
-                            <script  src="./js/Menu-underline.js"></script>                
+                            <li class="nav-item"><a href="contacts.html" class="nav-link nav-link-underline">Contacts</a></li>                
                         </ul>
                         <ul class="navbar-nav">
                             <!-- Cart -->
-                            <li class="nav-item"><a href="cart.html" class="nav-link nav-link-underline"><i class="fa-solid fa-cart-shopping"></i>
+                            <li class="nav-item"><a href="cart.html" class="nav-link nav-link-underline active"><i class="fa-solid fa-cart-shopping"></i>
                                 Cart <small class="text-gray fw-normal"> (2)</small></a></li> 
                             
                             <!-- Wishlist -->
                             <li class="nav-item"><a href="#!" class="nav-link nav-link-underline"><i class="fas fa-regular fa-heart text-gray fw-normal"></i><small class="text-gray fw-normal">(0)</small></a></li>
                             <!-- Sing in -->
-                            <li class="nav-item"><a href="login.html" class="nav-link nav-link-underline active"><i class="fas fa-regular fa-user text-gray fw-normal"></i> Login</a></li>              
+                            <li class="nav-item"><a href="login.html" class="nav-link nav-link-underline"><i class="fas fa-regular fa-user text-gray fw-normal"></i> Login</a></li>              
                         </ul>
                     </div>
                 </nav>
@@ -56,96 +56,46 @@
         </header>
         
         <!-- Slider -->
-        <!-- TO DO -->
-
 
         <!-- Content on page -->
         <div class="container">
             <!-- Page name -->
             <section>
-                <h1 class="head">Our Contacts</h1>    
+                <h1 class="head">Cart</h1>  
             </section>
 
             <!-- Content -->
             <section class="py-5">
-                <div>
-                    <div class="row">
-                        <!-- Our contacts -->
-                        <div class="col-xl-5 col-lg-6 col-md-7 col-sm-9 text-center">
-                            <div class="text-left">
-                                <ul class="list-inline">
-                                    <li class=" reset-anchor mb-2">
-                                        <i class="fa-solid fa-clock text-black"> Mon. - Fr.: 09:00 - 18:00</i>
-                                    </li>
-                                    <li class="reset-anchor mb-3">
-                                        <a  href="tel:+3804411234567">
-                                            <i class="fa-solid fa-phone text-black"> +38 044 123 45 67</i></a>
-                                    </li>
-                                    <li class="reset-anchor mb-3">
-                                        <a href="tel:+3804411234567">
-                                            <i class="fa-solid fa-phone text-black"> +38 097 123 45 67</i></a>
-                                    </li>
-                                    <li class="reset-anchor mb-3">
-                                        <a href="mailto:site.owner@gmail.com">
-                                            <i class="fa-solid fa-at text-black"> site.owner@gmail.com</i></a>
-                                    </li>
-                                    <li class="reset-anchor mb-3">
-                                        <a target="blank" href="https://goo.gl/maps/y2B7Pfmi8Mv4kkcg9">
-                                            <i class="fa-solid fa-map-location text-black"> Kyiv, Vladimirskaya Street, 22</i> </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- Contact form -->
-                            <div class="row">
-                                <h2 class="">Contact Us</h2> 
-                              
-                                    <div class="col-md-6">
-                                        <div class="md-form mb-0">
-                                            <input type="text" id="name" name="name" class="form-control">
-                                            <label for="name" class="">Your name</label>
-                                        </div>
-                                    </div>
+                <header>
+                    <h2 class="h5 text-uppercase mb-4 align-items-center">You Shopping Cart</h2>
+                </header>
+                <div class="row">
+                    <div class="col-lg-8 mb-4">
+                        <div class="table-responsive mb-4">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th><strong class="text-sm text-uppercase">Product</strong></th>
+                                        <th><strong class="text-sm text-uppercase">Price</strong></th>
+                                        <th><strong class="text-sm text-uppercase">Quantity</strong></th>
+                                        <th><strong class="text-sm text-uppercase">Total</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Product 1</td>
+                                        <td>125</td>
+                                        <td>1</td>
+                                        <td>125</td>
+                                    </tr>
+                                </tbody>
 
-                                    <div class="col-md-6">
-                                        <div class="md-form mb-0">
-                                            <input type="email" id="email" name="email" class="form-control">
-                                            <label for="email" class="">Your email</label>
-                                        </div>
-                                    </div> 
-
-                                    <div class="col-md-12">
-                                        <div class="md-form">
-                                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                                            <label for="message">Your message</label>
-                                        </div>
-                                    </div> 
-
-                                    <div class="mb-3">
-                                  
-                                        <button class="btn text-center" type="button">
-                                            <span class="btn__text">Submit</span>
-                                            <svg class="btn__progress" viewBox="0 0 48 48" width="48px" height="48px">
-                                                <circle class="btn__progress-track" r="20" cx="24" cy="24" fill="none" stroke="#c7cad1" stroke-width="8" />
-                                                <circle class="btn__progress-fill" r="20" cx="24" cy="24" fill="none" stroke="#000000" stroke-width="8" transform="rotate(-90,24,24)" stroke-dasharray="125.66 125.66" stroke-dashoffset="125.66" />
-                                                <polyline class="btn__progress-check" points="12,24 20,32 36,16" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="34 34" stroke-dashoffset="34" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-7 col-lg-8 col-md-9 col-sm-10 text-center">
-                            <!-- google map -->
-                            <div>
-                                <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1037.681400539778!2d30.516577804179025!3d50.45311051177275!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce5b0fddaff5%3A0xe5e5b3101b07236e!2z0KHQvtGE0LjQudGB0LrQsNGPINC_0LvQvtGJ0LDQtNGM!5e0!3m2!1sru!2sua!4v1656252206762!5m2!1sru!2sua" 
-                                 width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title=""></iframe>
-                            </div>
+                            </table>
                         </div>
                     </div>
-                </div>
+                </div> 
             </section>
-         </div>
+       </div>
 
         <!-- Footer -->
         <footer class="text-white">
@@ -209,9 +159,10 @@
                         </div>
                     </div>
             </div>
-        </footer>   
+        </footer>
 
     </div>
+
     <!-- partial -->
     <script  src="./js/script.js"></script>
 </body>

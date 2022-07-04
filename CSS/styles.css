@@ -21,6 +21,16 @@
     --font-size--small: calc((14/16) * 1rem); /* 14px */
     --font-size--default: calc((16/16) * 1rem); /* 16px */
     --font-size--large: calc((18/16) * 1rem); /* 18px */
+
+
+    /* submit BTN */
+    --hue: 223;
+    --bg1: hsl(var(--hue), 10%, 90%);
+    --bg2: hsl(var(--hue), 10%, 80%);
+    --fg1: hsl(var(--hue), 10%, 10%);
+    --fg2: hsl(var(--hue), 10%, 20%);
+    --primary1: hsl(var(--hue), 90%, 55%);
+    --primary2: hsl(var(--hue), 90%, 45%);
 }
 
 *{
@@ -108,13 +118,13 @@ nav{
 }
 
 /* Big letters */
-/* .text-uppercase{
+.text-uppercase{
     text-transform: uppercase;
-} */
+}
 
-/* .text-dark{
+.text-dark{
  color: #212529;
-} */
+}
 
 .text-white {
     color: rgb(var(--bs-white-rgb));
@@ -1069,6 +1079,14 @@ nav{
     text-align: right;
 }
 
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mb-1 {
+    margin-bottom: 0.25rem !important;
+}
+
 .mb-2 {
     margin-bottom: 0.5rem !important;
 }
@@ -1300,13 +1318,154 @@ https: //codepen.io/abdelrhmansaid/pen/OJRNOpQ */
     color: #ffffff;
 }
 
-/* Cantacts style 
- on page contacts */
 
 
-.contacts-link {
-    padding: .5rem;
+.form-control{
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size:1rem;
+    line-height: 1.5;
+    color: rgba(97, 96, 96, 0.8);
+    background-color:#fff;
+    border:1px solid #ced4da;
+}
+
+.form-select{
+    display: block;
+    width: 100%;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.8);
+    background-color: #fff;
+    border: 1px solid #ced4da;
+}
+
+.form-sellect-lg {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    padding-left: 1rem;
 }
 
 
 
+
+
+/* Main button styles */
+.btn {
+    background-color: transparent;
+    border-radius: 1.5em;
+    display: block;
+    position: relative;
+    width: 7.5em;
+    height: 3em;
+    transition: width 0.3s ease-in-out;
+}
+
+.btn:not(:disabled):active {
+    transform: translateY(0.1em);
+}
+
+.btn__text {
+    background-color: var(--primary1);
+    border-radius: inherit;
+    color: hsl(0, 0%, 100%);
+    display: inline-block;
+    padding: 0.75em 1.5em;
+    transition:
+        background-color 0.15s linear,
+        color 0.15s 0.3s ease-in-out;
+    width: 100%;
+}
+
+.btn:not(:disabled):focus .btn__text,
+.btn:not(:disabled):hover .btn__text {
+    background-color: var(--primary2);
+}
+
+.btn__progress {
+    overflow: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3em;
+    height: 3em;
+    visibility: hidden;
+}
+
+.btn__progress-track {
+    r: 12px;
+    stroke: var(--bg2);
+    stroke-width: 24;
+}
+
+.btn__progress-fill {
+    stroke: var(--primary1);
+    stroke-dashoffset: 125.66;
+}
+
+.btn__progress-check {
+    stroke: hsl(0, 0%, 100%);
+    stroke-dashoffset: 34;
+}
+
+/* Both states */
+.btn--running,
+.btn--done {
+    outline: none;
+    pointer-events: none;
+    width: 3em;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.btn--running .btn__text,
+.btn--done .btn__text {
+    color: transparent;
+    transition:
+        background-color 0.3s ease-in-out,
+        visibility 0.3s steps(1);
+}
+
+.btn--running .btn__progress,
+.btn--done .btn__progress {
+    visibility: visible;
+}
+
+/* Running state */
+.btn--running .btn__text {
+    background-color: var(--bg2);
+    visibility: hidden;
+}
+
+.btn--running .btn__progress {
+    transition: visibility 0.3s 0.3s steps(1, start);
+}
+
+.btn--running .btn__progress-track {
+    r: 20px;
+    stroke-width: 8;
+    transition:
+        r 0.3s 0.3s ease-in-out,
+        stroke-width 0.3s 0.3s ease-in-out;
+}
+
+.btn--running .btn__progress-fill {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 2s 0.6s linear;
+}
+
+/* Done state */
+.btn--done .btn__progress-track {
+    stroke: var(--primary1);
+    transition:
+        r 0.3s ease-in-out,
+        stroke-width 0.3s ease-in-out;
+}
+
+.btn--done .btn__progress-check {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.3s 0.3s ease-out;
+}
