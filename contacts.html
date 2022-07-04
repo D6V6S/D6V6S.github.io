@@ -9,8 +9,8 @@
     <meta name="description" lang="en" content="Main page">
     <link rel="icon" size="16x16" href="img/icons/home.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="CSS/normalize.css">
-    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="./CSS/normalize.css">
+    <link rel="stylesheet" href="./CSS/styles.css">
 </head>
 <body class="">
     <div>
@@ -71,7 +71,7 @@
                 <div>
                     <div class="row">
                         <!-- Our contacts -->
-                        <div class="col-xl-5 col-lg-6 col-md-7 col-sm-9 text-center">
+                        <div class="col-xl-5 col-lg-6 col-md-7 col-sm-9">
                             <div class="text-left">
                                 <ul class="list-inline">
                                     <li class=" reset-anchor mb-2">
@@ -97,49 +97,40 @@
                             </div>
                             <!-- Contact form -->
                             <div class="row">
-                                <h2 class="">Contact Us</h2> 
+                                <h2 class="text-center">Write To Us</h2> 
                               
                                     <div class="col-md-6">
-                                        <div class="md-form mb-0">
-                                            <input type="text" id="name" name="name" class="form-control">
-                                            <label for="name" class="">Your name</label>
+                                        <div class="md-form mb-3">
+                                            <input type="text" id="name" name="name" class="form-control" placeholder="Your name">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <div class="md-form mb-0">
-                                            <input type="email" id="email" name="email" class="form-control">
-                                            <label for="email" class="">Your email</label>
+                                        <div class="md-form mb-3">
+                                            <input type="email" id="email" name="email" class="form-control" placeholder="Your email">
                                         </div>
                                     </div> 
 
                                     <div class="col-md-12">
-                                        <div class="md-form">
-                                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                                            <label for="message">Your message</label>
+                                        <div class="md-form mb-3">
+                                            <textarea type="text" id="message" name="message" rows="3" class="form-control md-textarea" placeholder="Your message"></textarea>
                                         </div>
                                     </div> 
 
                                     <div class="mb-3">
-                                  
-                                        <button class="btn text-center" type="button">
-                                            <span class="btn__text">Submit</span>
-                                            <svg class="btn__progress" viewBox="0 0 48 48" width="48px" height="48px">
-                                                <circle class="btn__progress-track" r="20" cx="24" cy="24" fill="none" stroke="#c7cad1" stroke-width="8" />
-                                                <circle class="btn__progress-fill" r="20" cx="24" cy="24" fill="none" stroke="#000000" stroke-width="8" transform="rotate(-90,24,24)" stroke-dasharray="125.66 125.66" stroke-dashoffset="125.66" />
-                                                <polyline class="btn__progress-check" points="12,24 20,32 36,16" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="34 34" stroke-dashoffset="34" />
-                                            </svg>
+                                        <button class="btn-sent alling-item-center" type="button">
+                                            <span class="btn__text">Sent</span>
                                         </button>
                                     </div>
                             </div>
                         </div>
 
-                        <div class="col-xl-7 col-lg-8 col-md-9 col-sm-10 text-center">
+                        <div class="col-xl-7 col-lg-8 col-md-9 col-sm-10">
                             <!-- google map -->
-                            <div>
+                            <div class="g-map">
                                 <iframe 
                                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1037.681400539778!2d30.516577804179025!3d50.45311051177275!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce5b0fddaff5%3A0xe5e5b3101b07236e!2z0KHQvtGE0LjQudGB0LrQsNGPINC_0LvQvtGJ0LDQtNGM!5e0!3m2!1sru!2sua!4v1656252206762!5m2!1sru!2sua" 
-                                 width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title=""></iframe>
+                                 width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title=""></iframe>
                             </div>
                         </div>
                     </div>
