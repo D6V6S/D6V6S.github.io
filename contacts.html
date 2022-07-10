@@ -21,9 +21,6 @@
                     <a href="index.html" class="navbar-brand">
                         <span class="fw-bolt">ShopLiNe Co</span>
                     </a>
-                    <!-- <button class="navbar-toggler navbar-toggler-end collapsed">
-                        <span class="navbar-toggler-icon"></span>
-                    </button> -->
                     <button class="navbar-toggler navbar-toggler-end collapsed">
                         <div class="icon nav-icon">
                         <span></span>
@@ -47,7 +44,7 @@
                             <!-- Wishlist -->
                             <li class="nav-item"><a href="#!" class="nav-link nav-link-underline"><i class="fas fa-regular fa-heart text-gray fw-normal"></i><small class="text-gray fw-normal">(0)</small></a></li>
                             <!-- Sing in -->
-                            <li class="nav-item"><a href="login.html" class="nav-link nav-link-underline active"><i class="fas fa-regular fa-user text-gray fw-normal"></i> Login</a></li>              
+                            <li class="nav-item"><a href="#login" class="nav-link nav-link-underline active"><i class="fas fa-regular fa-user text-gray fw-normal"></i> Login</a></li>              
                         </ul>
                     </div>
                 </nav>
@@ -55,16 +52,13 @@
             </div>
         </header>
         
-        <!-- Slider -->
-        <!-- TO DO -->
-
+        <!-- page name -->
+        <div class="conteiner p-3">
+            <h1 class="head">Our Contacts</h1> 
+        </div>
 
         <!-- Content on page -->
         <div class="container">
-            <!-- Page name -->
-            <section>
-                <h1 class="head">Our Contacts</h1>    
-            </section>
 
             <!-- Content -->
             <section class="py-5">
@@ -117,16 +111,14 @@
                                         </div>
                                     </div> 
 
-                                    <div class="mb-3">
-                                        <button class="btn-sent alling-item-center" type="button">
-                                            <span class="btn__text">Sent</span>
-                                        </button>
+                                    <div class="mb-2">
+                                        <input class="btn btn-primary" type="submit" value="Send">
                                     </div>
                             </div>
                         </div>
-
+                        <!-- google map -->
                         <div class="col-xl-7 col-lg-8 col-md-9 col-sm-10">
-                            <!-- google map -->
+                            
                             <div class="g-map">
                                 <iframe 
                                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1037.681400539778!2d30.516577804179025!3d50.45311051177275!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce5b0fddaff5%3A0xe5e5b3101b07236e!2z0KHQvtGE0LjQudGB0LrQsNGPINC_0LvQvtGJ0LDQtNGM!5e0!3m2!1sru!2sua!4v1656252206762!5m2!1sru!2sua" 
@@ -191,10 +183,10 @@
                         <!-- Copy Right -->
                     <div class="bg-dark ">
                         <div class="container row">
-                            <div class="col-md-5 mb-2">
+                            <div class="col-md-6 mb-2 text-md-start">
                                 <p class="small text-muted">&ltdot;2022 Studies HTML5 and CSS3 &gtdot;</p>
                             </div>
-                            <div class="col-md-5 mb-2">
+                            <div class="col-md-6 mb-2 text-md-end">
                                 <p class="small text-muted">Template designed by My Temple</p>
                             </div>
                         </div>
@@ -203,7 +195,39 @@
         </footer>   
 
     </div>
-    <!-- partial -->
+
+    <!-- Login -->
+    <div class="modal" id="login">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h2>Please signa in</h2>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="md-form mb-3">
+                                        <input type="email" id="email" name="email" class="form-control" placeholder="Your email">
+                                    </div>
+                                </div> 
+                                <div class="col-md-12">
+                                    <div class="md-form mb-3">
+                                        <input type="password" id="password" name="password" class="form-control" placeholder="Your password">
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <input class="btn btn-primary" type="submit" value="Login">
+                                    <a href="#" class="btn btn-primary">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- script -->
     <script  src="./js/script.js"></script>
 </body>
 </html>
