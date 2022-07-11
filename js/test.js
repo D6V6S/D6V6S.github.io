@@ -15,19 +15,10 @@ let _A = 3;
 const $a = 3;
 const $A = 4;
 
-// prompt("Dude, tell me everything you know about programming", "...");
-
-    //    var x = 30;
-    //    console.log("the value of x is", x++);
-  
-// alert("Good morning Cats!" + a);
-
 A = 'foo';
 
 console.log("text", A);
-
 console.log("0.1 + 0.2", 0.1 + 0.2);
-
 console.log("type(a) =", typeof(a));
 console.log("type(A) =", typeof(A));
 console.log("type(true) =", typeof(true));
@@ -58,28 +49,81 @@ if (op == '+') {
 } 
 */
 
-var x = parseFloat(prompt("Enter x=", "..."));
-var y = parseFloat(prompt("Enter y=", "..."));
-var op = prompt("Enter operation", "...");
+// Calc V1
+/*
+var x = parseFloat(prompt("Enter x="));
+console.log("x=", x);
+var y = parseFloat(prompt("Enter y="));
+console.log("y=", y);
+var op = prompt("Enter operation");
 
-if (op == '+') {
-    console.log("x + y =", x + y);
-    alert(x + y);
-} else if (op == '-') {
-    console.log("x - y =", x - y);
-    alert(x - y);
-} else if (op == '*') {
-    console.log("x + y =", x * y);
-    alert(x * y);
-} else if (op == '/') {
-    console.log("x / y =", x / y);
-    alert(x / y);
-} else if (op == '%') {
-    console.log("x + y =", x % y);
-    alert(x % y);
+
+if (!isNaN(x)) {
+    if (!isNaN(y)) {
+        if (op == '+') {
+            console.log("x + y =", x + y);
+            alert(x + y);
+        } else if (op == '-') {
+            console.log("x - y =", x - y);
+            alert(x - y);
+        } else if (op == '*') {
+            console.log("x + y =", x * y);
+            alert(x * y);
+        } else if (op == '/') {
+            if (y == '0') {
+                console.log("Division by 0!");
+                alert("Devision by 0!");
+            } else {
+                console.log("x / y =", x / y);
+                alert(x / y);
+            }
+        } else if (op == '%') {
+            console.log("x + y =", x % y);
+            alert(x % y);
+        } else {
+            console.log("Bed operation");
+            alert("Bed operation");
+        }
+    }
+    else {
+        console.log("ERROR! Y is NaN");
+        alert("ERROR! Y is NaN");
+    }
 } else {
-    console.log("Bed operation");
-    alert("Bed operation");
+    console.log("ERROR! X is NaN");
+    alert("ERROR! X is NaN");
 }
+*/
 
+var x = prompt("Enter x=");
+console.log("x=", x);
+var y = prompt("Enter y=");
+console.log("y=", y);
+
+if (x != '', x != '') {
+    if (!isNaN(x)) {
+        if (!isNaN(y)) {
+            switch (prompt("Enter operator:")) {
+                case "+": alert("x + y =" + (x + y)); break;
+                case "-": alert("x - y =" + (x - y)); break;
+                case "*": alert("x * y =" + (x * y)); break;
+                case "/":
+                    if (y == '0') {
+                        alert("Division by 0!");
+                    } else {
+                        alert("x / y =" + (x / y));
+                    }; break;
+                
+                default: alert("Непевна операція!"); break;
+            }
+        }
+        else {
+            alert("ERROR! Y is NaN. You can't do math!");
+        }
+    } else {
+        alert("ERROR! X is NaN. You can't do math!");
+    }
+}else {
+    alert("ERROR! Value not enter.");
+}
 
