@@ -24,7 +24,7 @@
                     <a href="index.html" class="navbar-brand">
                         <span class="fw-bolt">ShopLiNe Co</span>
                     </a>
-                    <button class="navbar-toggler navbar-toggler-end collapsed" >
+                    <button class="navbar-toggler navbar-toggler-end collapsed" id="navbar-toggler">
                         <div class="icon nav-icon">
                         <span></span>
                         <span></span>
@@ -41,12 +41,15 @@
                         <ul class="navbar-nav">
                             <!-- Cart -->
                             <li class="nav-item"><a href="cart.html" class="nav-link nav-link-underline"><i class="fa-solid fa-cart-shopping"></i>
-                                Cart <small class="text-gray fw-normal"> (2)</small></a></li> 
+                                Cart <small class="text-gray fw-normal"> (<span id="shopping-cart-value">0</span>)</small></a></li> 
                             
                             <!-- Wishlist -->
-                            <li class="nav-item"><a href="#!" class="nav-link nav-link-underline"><i class="fas fa-regular fa-heart text-gray fw-normal"></i><small class="text-gray fw-normal">(0)</small></a></li>
+                            <li class="nav-item"><a href="#!" class="nav-link nav-link-underline">
+                                <i class="fas fa-regular fa-heart text-gray fw-normal"></i>
+                                <small class="text-gray fw-normal">(<span id="wish-list-value">0</span>)</small></a></li>
                             <!-- Sing in -->
-                            <li class="nav-item"><a href="#login" class="nav-link nav-link-underline"><i class="fas fa-regular fa-user text-gray fw-normal"></i> Login</a></li>              
+                            <li class="nav-item"><a href="#login" class="nav-link nav-link-underline">
+                                <i class="fas fa-regular fa-user text-gray fw-normal"></i> Login</a></li>              
                         </ul>
                     </div>
                 </nav>
@@ -210,12 +213,12 @@
                                         <div class="product-overlay">
                                             <ul class="list-unstyled">
                                                 <li class="list-inline-item">
-                                                    <a href="#!" title="Add to wishlist" class="btn bt-sm btn-outline-indigo">
+                                                    <a href="#!" title="Add to wishlist" class="btn bt-sm btn-outline-indigo add-to-wish-list">
                                                         <i class="far fa-heart"></i>
                                                     </a>
                                                 </li>
                                                 <li class="list-inline-item">
-                                                    <a href="#!" title="Add to cart" class="btn bt-sm btn-outline-indigo">Add to cart</a>
+                                                    <a href="#!" title="Add to cart" class="btn bt-sm btn-outline-indigo add-to-cart">Add to cart</a>
                                                 </li>
                                                 <li class="list-inline-item">
                                                     <a href="#productView" title="Detail info" class="btn bt-sm btn-outline-indigo">
