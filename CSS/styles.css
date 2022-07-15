@@ -74,6 +74,18 @@ body {
     background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
 }
 
+.bg-new {
+    background-color: green !important;
+}
+
+.bg-sale {
+    background-color: red !important;
+}
+
+.bg-sold {
+    background-color: gold !important;
+}
+
 /* navigation style*/
 
 nav{
@@ -192,6 +204,28 @@ h2,
 h6,
 .h6 {
     font-size: 1rem;
+}
+
+/* badge */
+
+.badge {
+    display: inline-block;
+    padding: .35em .65em;
+    font-size: .8em;
+    font-weight: 400;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0;
+}
+
+.product .badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
 }
 
 /* table */

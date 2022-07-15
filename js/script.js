@@ -137,25 +137,160 @@ console.log(typeof(test));
 //   document.querySelector('.collapse').classList.toggle('show');
 // });
 
+
+
+// Unit 3
+
+//using array literal notation
+let products = [
+  {
+    badge: {
+      title: "New",
+      bg: "new",
+    },
+    image: "img/product/photo_1.jpg",
+    title: "Product 1",
+    price: 111,
+  },
+  {
+    badge: {
+      title: "New",
+      bg: "new",
+    },
+    image: "img/product/photo_1.jpg",
+    title: "Product 2",
+    price: 112,
+  },
+  {
+    badge: {
+      title: "New",
+      bg: "new",
+    },
+    image: "img/product/photo_1.jpg",
+    title: "Product 3",
+    price: 113,
+  },
+  {
+    badge: {
+      title: "",
+      bg: "",
+    },
+    image: "img/product/photo_1.jpg",
+    title: "Product 4",
+    price: 114,
+  },
+  {
+    badge: {
+      title: "Sale",
+      bg: "sale",
+    },
+    image: "img/product/photo_1.jpg",
+    title: "Product 5",
+    price: 115,
+  },
+  {
+    badge: {
+      title: "",
+      bg: "",
+    },
+    image: "img/product/photo_1.jpg",
+    title: "Product 6",
+    price: 116,
+  },
+  {
+    badge: {
+      title: "Sold",
+      bg: "sold",
+    },
+    image: "img/product/photo_1.jpg",
+    title: "Product 7",
+    price: 117,
+  },
+  {
+    badge: {
+      title: "New",
+      bg: "new",
+    },
+    image: "img/product/photo_1.jpg",
+    title: "Product 8",
+    price: 118,
+  },
+];
+
+
+function productItemTemplate(product) {
+  return `<!-- product -->
+          <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+              <div class="product text-center">
+                  <div class="mb-3 position-relavive">
+                    <div class="badge text-white bg-${product.badge.bg}">${product.badge.title}</div>
+                      <a href="detail.html">
+                      <img src="${product.image}" alt="${product.title}" class="img-flued"> 
+                      </a>
+                      <div class="product-overlay">
+                          <ul class="list-unstyled">
+                              <li class="list-inline-item">
+                                  <a href="#!" title="Add to wishlist" class="btn bt-sm btn-outline-indigo add-to-wish-list">
+                                      <i class="far fa-heart"></i>
+                                  </a>
+                              </li>
+                              <li class="list-inline-item">
+                                  <a href="#!" title="Add to cart" class="btn bt-sm btn-outline-indigo add-to-cart">Add to cart</a>
+                              </li>
+                              <li class="list-inline-item">
+                                  <a href="#productView" title="Detail info" class="btn bt-sm btn-outline-indigo">
+                                      <i class="fas fa-expand"></i>
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <h6 class=""><a href="detail.html" class="reset-anchor">${product.title}</a></h6>
+                  <p class="small test-muted">$${product.price}</p>
+              </div>
+          </div>
+          `;
+}
+
+function populateProdactList(products) {
+
+  let content = "";
+
+  for (const product of products) {
+    content += productItemTemplate(product);
+  }
+  return content;
+}
+
+// console.log(populateProdactList(products));
+
+document.querySelector(".catalog").innerHTML = populateProdactList(products);
+
+// addToWishlistButtons & addToCartButtons
+
 const shoppingCartValue = document.getElementById('shopping-cart-value');
 const wishListValue = document.getElementById('wish-list-value');
 
-let addToWishlist = document.querySelector('.add-to-wish-list');
-let addToCart = document.querySelector('.add-to-cart');
+let addToWishlistButtons = document.querySelectorAll('.add-to-wish-list');
+let addToCartButtons = document.querySelectorAll('.add-to-cart');
+// console.log(addToWishlistButtons);
 
-if (addToWishlist) {
-  addToWishlist.addEventListener('click', function () {
+if (addToWishlistButtons) {
+  addToWishlistButtons.forEach(function (element) {
+    element.addEventListener('click', function () {
     wishListValue.textContent = +wishListValue.textContent + 1;
     wishListValue.classList.add('fw-bold');
     wishListValue.style = "color:red;";
+    });  
   });
 }
 
-if (addToCart) {
-  addToCart.addEventListener('click', function () {
+if (addToCartButtons) {
+  addToCartButtons.forEach(function (element) {
+    element.addEventListener('click', function () {
     shoppingCartValue.textContent = +shoppingCartValue.textContent + 1;
     shoppingCartValue.classList.add('fw-bold');
     shoppingCartValue.style = "color:red;";
+    });
   });
 }
-
