@@ -25,13 +25,6 @@ document.querySelectorAll('a.nav-link-underline').forEach(elem => {
 
 });
 
-// hamburger v1
-// const icons = document.querySelectorAll('.icon');
-// icons.forEach (icon => {  
-//   icon.addEventListener('click', (event) => {
-//     icon.classList.toggle("open");
-//   });
-// });
 
 // hamburger v2
 const icons = document.querySelectorAll('.icon');
@@ -43,214 +36,46 @@ icons.forEach (icon => {
     ;
 });
 
-/* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
-// onclick="navBarShow()"
-// function navBarShow() {
-//   var x = document.getElementById("navBarMobile");
-//     x. classList.toggle("show");
-// }
-
-
-
-/* Toggle */
-// function navBarShowV4() {
-//   var x = document.getElementById("navBarMobile1");
-//   if (x.classList.contains('show')) {
-//      x.classList = "navbar-collapse collapse";
-//   } else {
-//     x.classList = "navbar-collapse collapse show";
-//   }
-// }
-
-
-/* Toggle  */
-// function navBarShowV1() {
-//   var x = document.getElementById("navBar");
-//   if (x.style.display === "block") {
-//     x.style.display = "none";
-//   } else {
-//     x.style.display = "block";
-//   }
-// }
-
-/* Toggle  */
-// function navBarShowV2() {
-//   var x = document.getElementById("navBarMobile");
-//   if (x.style.display === "block") {
-//     x.style.setProperty('--navscale', `0`);
-//     x.style.setProperty('--navheight', `0px`);
-//     x.style.display = "none";
-//   } else {
-//     x.style.setProperty('--navscale', `1`);
-//     x.style.setProperty('--navheight', `auto`);
-//     x.style.display = "block";
-
-
-//   }
-// }
-
-/* Toggle  */
-// function navBarShowV3() {
-//   var x = document.getElementById("navBarMobile");
-//   if (x.style.height === "auto") {
-//     // x.style.setProperty('--navscale', `0`);
-//     // x.style.setProperty('--navheight', `0px`);
-//      x.classList = "navbar-mobile";
-//     x.style.height = "0px";
-//   } else {
-//     // x.style.setProperty('--navscale', `1`);
-//     // x.style.setProperty('--navheight', `auto`);
-//     x.classList = "navbar-mobile navheight show";
-//     x.style.height = "auto";
-
-
-//   }
-// }
-
-/*
-let obj = {
-    name: "My Name",
-    price: 123
-};
-
-console.log(obj["name"]);
-console.log(document);
-
-*/
-
-/*
-function test(x,y) {
-  return x + y;
-}
-
-console.log(typeof(test));
-*/
-
-
-// const navbarToggler = document.getElementById('navbar-toggler');
-
-// // console.log(navbarToggler);
-
-// console.log(document.querySelector('.collapse'));
-
-// navbarToggler.addEventListener('click', function (){
-//   document.querySelector('.collapse').classList.toggle('show');
-// });
-
-
 
 // Unit 3
 
-//using array literal notation
-let products = [
-  {
-    badge: {
-      title: "New",
-      bg: "new",
-    },
-    image: "img/product/photo_1.jpg",
-    title: "Product 1",
-    price: 111,
-  },
-  {
-    badge: {
-      title: "New",
-      bg: "new",
-    },
-    image: "img/product/photo_1.jpg",
-    title: "Product 2",
-    price: 112,
-  },
-  {
-    badge: {
-      title: "New",
-      bg: "new",
-    },
-    image: "img/product/photo_1.jpg",
-    title: "Product 3",
-    price: 113,
-  },
-  {
-    badge: {
-      title: "",
-      bg: "",
-    },
-    image: "img/product/photo_1.jpg",
-    title: "Product 4",
-    price: 114,
-  },
-  {
-    badge: {
-      title: "Sale",
-      bg: "sale",
-    },
-    image: "img/product/photo_1.jpg",
-    title: "Product 5",
-    price: 115,
-  },
-  {
-    badge: {
-      title: "",
-      bg: "",
-    },
-    image: "img/product/photo_1.jpg",
-    title: "Product 6",
-    price: 116,
-  },
-  {
-    badge: {
-      title: "Sold",
-      bg: "sold",
-    },
-    image: "img/product/photo_1.jpg",
-    title: "Product 7",
-    price: 117,
-  },
-  {
-    badge: {
-      title: "New",
-      bg: "new",
-    },
-    image: "img/product/photo_1.jpg",
-    title: "Product 8",
-    price: 118,
-  },
-];
+const modalWindow = document.querySelector(".modal-window");
+const showCase = document.querySelector(".catalog");
 
 
-function productItemTemplate(product) {
-  return `<!-- product -->
-          <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-              <div class="product text-center">
-                  <div class="mb-3 position-relavive">
-                    <div class="badge text-white bg-${product.badge.bg}">${product.badge.title}</div>
-                      <a href="detail.html">
-                      <img src="${product.image}" alt="${product.title}" class="img-flued"> 
-                      </a>
-                      <div class="product-overlay">
-                          <ul class="list-unstyled">
-                              <li class="list-inline-item">
-                                  <a href="#!" title="Add to wishlist" class="btn bt-sm btn-outline-indigo add-to-wish-list">
-                                      <i class="far fa-heart"></i>
-                                  </a>
-                              </li>
-                              <li class="list-inline-item">
-                                  <a href="#!" title="Add to cart" class="btn bt-sm btn-outline-indigo add-to-cart">Add to cart</a>
-                              </li>
-                              <li class="list-inline-item">
-                                  <a href="#productView" title="Detail info" class="btn bt-sm btn-outline-indigo">
-                                      <i class="fas fa-expand"></i>
-                                  </a>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
-                  <h6 class=""><a href="detail.html" class="reset-anchor">${product.title}</a></h6>
-                  <p class="small test-muted">$${product.price}</p>
-              </div>
-          </div>
-          `;
-}
+let productItemTemplate = product =>
+  `<!-- product -->
+    <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+        <div class="product text-center">
+            <div class="mb-3 position-relavive">
+              <div class="badge text-white bg-${product.badge.bg}">${product.badge.title}</div>
+                <a href="detail.html">
+                <img src="${product.image}" alt="${product.title}" class="img-flued"> 
+                </a>
+                <div class="product-overlay">
+                    <ul class="list-unstyled btn-block" data-id="${product.id}" data-price="${product.price}">
+                        <li class="list-inline-item">
+                            <a href="#!" title="Add to wishlist" class="btn bt-sm btn-outline-indigo add-to-wish-list">
+                                <i class="far fa-heart"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!" title="Add to cart" class="btn bt-sm btn-outline-indigo add-to-cart">Add to cart</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#productView" title="Detail info" class="btn bt-sm btn-outline-indigo detail">
+                                <i class="fas fa-expand"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h6 class=""><a href="detail.html" class="reset-anchor">${product.title}</a></h6>
+            <p class="small test-muted">$${product.price}</p>
+        </div>
+    </div>
+    `;
+
 
 function populateProdactList(products) {
 
@@ -264,12 +89,132 @@ function populateProdactList(products) {
 
 // console.log(populateProdactList(products));
 
-document.querySelector(".catalog").innerHTML = populateProdactList(products);
+
+
+
+// Unit 4 modal
+
+let rating = stars => {
+  let result = "";
+  for (let i = 0; i < stars; i++) {
+    result += '<li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>';
+  }
+  for (let i = 0; i < 5-stars; i++) {
+    result += '<li class="list-inline-item m-0"><i class="fas fa-star small"></i></li>';
+  }
+  return result;
+}
+
+
+let modalTemplate = product =>
+  `<div class="modal" id = "productView" tabindex = "-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="p-4 btn-close"><i class="fas fa-times"></i></a>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="bg-center bg-cover b-block h-100" style="background: url(${product.image})"></div>
+              </div>
+              <div class="col-lg-6">
+                <div class="p-4">
+                  <ul class="list-inline mb-2">
+                  ${rating(product.stars)}
+                  </ul>
+                  <h2>${product.title}</h2>
+                  <p class="text-muted">$${product.price}</p>
+                  <p class="text-sm mb-4"> ${product.description}</p>
+                    <div class="row mb-4">
+                      <div class="col-sm-6">
+                        <div class="border d-flex align-items-center justify-content-between py-1 px-3">
+                          <span class="small text-uppercase text-gray mr-4">Quantity</span>
+                          <div class="quantity">
+                          
+                            <i class="fas fa-caret-left p-0 dec-btn"></i>
+                              <input class="form-control border-0 quantity-result" type="text" value="1">
+                            <i class="fas fa-caret-right p-0 inc-btn"></i>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    <div class="row mb-2">
+                      <div class="col-sm-6">
+                        <a class="but btn-dark btn-sm w-100 h-100 d-flex align-items-center justify-content-center mb-1" href="cart.html">Add to cart</a>
+                      </div>
+                      <div class="col-sm-6">
+                        <a class="but btn-dark btn-sm w-100 h-100 d-flex align-items-center text-decoration mb-1" href="cart.html">Wishlist</a>
+                      </div>
+                    </div>         
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+     </div>   
+   </div>
+  `;
+
+
+
+// Chahge Quantity of product
+
+function renderModal() {
+  modalWindow.querySelector('.inc-btn').addEventListener('click', event => {
+    let val = event.target.previousElementSibling.value;
+    val++;
+    event.target.previousElementSibling.value = val;
+  });
+  modalWindow.querySelector('.dec-btn').addEventListener('click', event => {
+    let val = event.target.nextElementSibling.value;
+    if (val > 1) {
+      val--;
+        }
+    event.target.nextElementSibling.value = val;
+  });
+}
+
+// 
+
+function toggelModal(param, product={}) {
+  if (modalWindow.innerHTML === '') {
+    modalWindow.innerHTML = modalTemplate(product);
+    renderModal();
+  } else {
+    modalWindow.innerHTML = '';
+  }
+  modalWindow.style.display = param;
+}
+
+//showCase
+
+function detailButton(products) {
+  let detailButtons = showCase.querySelectorAll(".detail");
+  console.log(detailButtons);
+  detailButtons.forEach(button => {
+    button.addEventListener("click", event => {
+      let productId = event.target.closest('.btn-block').dataset.id;
+      console.log(productId);
+      let product = products.find(product => product.id == productId);
+      toggelModal('block', product);
+      modalWindow.querySelector('.close').addEventListener('click', event => {
+        event.preventDefault();
+        toggelModal('none');
+      })
+    })
+  })
+}
+
 
 // addToWishlistButtons & addToCartButtons
 
 const shoppingCartValue = document.getElementById('shopping-cart-value');
 const wishListValue = document.getElementById('wish-list-value');
+
+
+document.querySelector(".catalog").innerHTML = populateProdactList(products);
+
 
 let addToWishlistButtons = document.querySelectorAll('.add-to-wish-list');
 let addToCartButtons = document.querySelectorAll('.add-to-cart');
@@ -294,3 +239,7 @@ if (addToCartButtons) {
     });
   });
 }
+
+detailButton(products);
+
+
