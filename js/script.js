@@ -41,7 +41,44 @@ icons.forEach (icon => {
 
 const modalWindow = document.querySelector(".modal-window");
 const showCase = document.querySelector(".catalog");
+const shoppingCartValue = document.getElementById('shopping-cart-value');
+const wishListValue = document.getElementById('wish-list-value');
 
+let cart = [];
+
+class Store {
+  static init(key) {
+    let basket = [];
+    try {
+      basket = Store.isset(key) ? Store.get(key) : Store.set(key, []);
+    } catch (err) {
+      if (err === QUOTA_EXCEEDED_ERR) {
+        console.log("Local Storage Limited is exceeded");
+      }
+    }
+    return basket;
+  }
+  static set(key, value) {
+    return localStorage.setItem(key, JSON.stringify(value));
+  }
+  static get(key) {
+    let value = localStorage.getItem(key);
+    return value === null ? null : JSON.parse(value);
+  }
+  static isset(key) {
+    return this.get(key) !== null;
+  }
+}
+
+
+
+// console.log(typeof (cart));
+// console.log('Empty cart=', cart);
+
+
+
+
+//product Template
 
 let productItemTemplate = product =>
   `<!-- product -->
@@ -94,6 +131,8 @@ function populateProdactList(products) {
 
 // Unit 4 modal
 
+// show rating of product (stars)
+
 let rating = stars => {
   let result = "";
   for (let i = 0; i < stars; i++) {
@@ -105,6 +144,7 @@ let rating = stars => {
   return result;
 }
 
+// modal window Template
 
 let modalTemplate = product =>
   `<div class="modal" id = "productView" tabindex = "-1">
@@ -140,7 +180,7 @@ let modalTemplate = product =>
 
                     <div class="row mb-2">
                       <div class="col-sm-6">
-                        <a class="but btn-dark btn-sm w-100 h-100 d-flex align-items-center justify-content-center mb-1" href="cart.html">Add to cart</a>
+                        <a class="but btn-dark btn-sm w-100 h-100 d-flex align-items-center justify-content-center mb-1 add-to-cart" href="#!">Add to cart</a>
                       </div>
                       <div class="col-sm-6">
                         <a class="but btn-dark btn-sm w-100 h-100 d-flex align-items-center text-decoration mb-1" href="cart.html">Wishlist</a>
@@ -155,8 +195,6 @@ let modalTemplate = product =>
      </div>   
    </div>
   `;
-
-
 
 // Chahge Quantity of product
 
@@ -187,7 +225,7 @@ function toggelModal(param, product={}) {
   modalWindow.style.display = param;
 }
 
-//showCase
+//showCase (show modal window) function
 
 function detailButton(products) {
   let detailButtons = showCase.querySelectorAll(".detail");
@@ -206,19 +244,55 @@ function detailButton(products) {
   })
 }
 
+function saveCart(cart) {
+  Store.set('basket', cart);
+}
+
+function addProductToCart(product, amount = 1) {
+  let cartItem = { ...product, amount: amount };
+  cart = [...cart, cartItem];
+  saveCart(cart);
+}
+
+function addToCartButton(cart) {
+  let addToCartButtons = document.querySelectorAll('.add-to-cart');
+  addToCartButtons.forEach((element) => {
+    element.addEventListener('click', (event) => {
+      let productId = event.target.closest('.btn-block').dataset.id;
+      let price = event.target.closest('.btn-block').dataset.price;
+
+      addProductToCart({ id: productId, price: price });
+
+      shoppingCartValue.textContent = +shoppingCartValue.textContent + 1;
+      shoppingCartValue.classList.add('fw-bold');
+      shoppingCartValue.style = "color:red;";
+    });
+  });
+}
+
+
+
+
+//after loading page
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  cart = Store.init('basket');
+  // console.log(cart);
 
 // addToWishlistButtons & addToCartButtons
 
-const shoppingCartValue = document.getElementById('shopping-cart-value');
-const wishListValue = document.getElementById('wish-list-value');
 
 
 document.querySelector(".catalog").innerHTML = populateProdactList(products);
-
+  
+  addToCartButton(cart);
 
 let addToWishlistButtons = document.querySelectorAll('.add-to-wish-list');
-let addToCartButtons = document.querySelectorAll('.add-to-cart');
+// let addToCartButtons = document.querySelectorAll('.add-to-cart');
 // console.log(addToWishlistButtons);
+
+// addToWishlistButtons 
 
 if (addToWishlistButtons) {
   addToWishlistButtons.forEach(function (element) {
@@ -230,16 +304,22 @@ if (addToWishlistButtons) {
   });
 }
 
-if (addToCartButtons) {
-  addToCartButtons.forEach(function (element) {
-    element.addEventListener('click', function () {
-    shoppingCartValue.textContent = +shoppingCartValue.textContent + 1;
-    shoppingCartValue.classList.add('fw-bold');
-    shoppingCartValue.style = "color:red;";
-    });
-  });
-}
+// addToCartButtons
+
+// if (addToCartButtons) {
+//   addToCartButtons.forEach(function (element) {
+//     element.addEventListener('click', function () {
+//     shoppingCartValue.textContent = +shoppingCartValue.textContent + 1;
+//     shoppingCartValue.classList.add('fw-bold');
+//       shoppingCartValue.style = "color:red;";
+//       cart[0] = { title: 'title', price: 123 };
+//       console.log('Cart item =',cart);
+//     });
+//   });
+// }
+
+//showCase (show modal window)
 
 detailButton(products);
 
-
+});
