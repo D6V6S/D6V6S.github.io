@@ -1,48 +1,10 @@
 'use strict';
-// underline menu
-
-document.querySelectorAll('a.nav-link-underline').forEach(elem => {
-
-  elem.onmouseenter =
-  elem.onmouseleave = e => {
-
-    const tolerance = 10;
-
-    const left = 0;
-    const right = elem.clientWidth;
-
-    let pageOfset = (window.innerWidth - document.querySelector('.container').offsetWidth)/2;
-    
-    let x = e.pageX - pageOfset - elem.offsetLeft;
-
-    if (x - tolerance < left) x = left;
-    if (x + tolerance > right) x = right;
-
-    elem.style.setProperty('--x', `${x}px`);
-
-    
-  };
-
-});
-
-
-// hamburger v2
-const icons = document.querySelectorAll('.icon');
-icons.forEach (icon => {  
-  icon.addEventListener('click', (event) => {
-    icon.classList.toggle("open");
-    document.getElementById("navBar").classList.toggle("show");
-    })
-    ;
-});
-
-
-// Unit 3
 
 const modalWindow = document.querySelector(".modal-window");
 const showCase = document.querySelector(".catalog");
 const shoppingCartValue = document.getElementById('shopping-cart-value');
 const wishListValue = document.getElementById('wish-list-value');
+const shoppingCartItems = document.querySelector('.shopping-cart-items');
 
 let cart = [];
 
@@ -113,7 +75,6 @@ let productItemTemplate = product =>
     </div>
     `;
 
-
 function populateProdactList(products) {
 
   let content = "";
@@ -126,6 +87,72 @@ function populateProdactList(products) {
 
 // console.log(populateProdactList(products));
 
+
+
+function cartItemTemplate(item) {
+    let product = products.find(product => product.id == item.id);
+    return ` <tr class="cart-item">
+    <th class="ps-0 py-3 border-light" scope="row">
+      <div class="d-flex align-items-center"><a class="reset-anchor d-block animsition-link" href="detail.html"><img src="${product.image}" alt="${product.title}" width="70"></a>
+        <div class="ms-3"><strong class="h6"><a class="reset-anchor animsition-link" href="detail.html">${product.title}</a></strong></div>
+      </div>
+    </th>
+    <td class="p-3 align-middle border-light">
+      <p class="mb-0 small">$${product.price}</p>
+    </td>
+    <td class="p-3 align-middle border-light">
+      <div class="border d-flex align-items-center justify-content-between px-3"><span class="small text-uppercase text-gray headings-font-family">Quantity</span>
+        <div class="quantity">
+          <button class="dec-btn p-0" data-id="${product.id}"><i class="fas fa-caret-left"></i></button>
+          <input class="form-control form-control-sm border-0 shadow-0 p-0 item-quantity" type="text" value="${item.amount}">
+          <button class="inc-btn p-0" data-id="${product.id}"><i class="fas fa-caret-right"></i></button>
+        </div>
+      </div>
+    </td>
+    <td class="p-3 align-middle border-light">
+      <p class="mb-0 small">$${item.amount*product.price}</p>
+    </td>
+    <td class="p-3 align-middle border-light"><a class="reset-anchor trash" href="#!"><i class="fas fa-trash-alt small text-muted" data-id="${product.id}"></i></a></td>
+  </tr>`;
+}
+
+const filterItem = (cart, id) => cart.filter(item => item.id !== id);
+const findItem = (cart, id) => cart.find(item => item.id == id);
+
+function renderCart() {
+  shoppingCartItems.addEventListener('click', event => {
+    if (event.target.classList.contains('fa-trash-alt')) {
+      cart = filterItem(cart, event.target.dataset.id);
+      saveCart(cart);
+      event.target.closest('.cart-item').remove();
+
+    } else if (event.target.classList.contains('inc-btn')) {
+      let tmpItem = findItem(cart, event.target.dataset.id);
+      console.log(findItem(cart, event.target.dataset.id));
+      tmpItem.amount += 1;
+      event.target.previousElementSibling.value = tmpItem.amount;
+      saveCart(cart);
+
+    } else if (event.target.classList.contains('dec-btn')) {
+      let tmpItem = findItem(cart, event.target.dataset.id);
+      if (tmpItem !== undefined && tmpItem.amount > 1) {
+        tmpItem.amount -= 1; 
+        event.target.nextElementSibling.value = tmpItem.amount; 
+        
+      } else {
+        cart = filterItem(cart, event.target.dataset.id);
+        event.target.closest('.cart-item').remove();
+      }
+      saveCart(cart);
+    }
+  })
+}
+
+function populateShoppingCart() {
+  let res = " ";
+  cart.forEach(item => res += cartItemTemplate(item));
+  return res;
+}
 
 
 
@@ -168,7 +195,7 @@ let modalTemplate = product =>
                       <div class="col-sm-6">
                         <div class="border d-flex align-items-center justify-content-between py-1 px-3">
                           <span class="small text-uppercase text-gray mr-4">Quantity</span>
-                          <div class="quantity">
+                          <div class="quantity btn-block" data-id="${product.id}" data-price="${product.price}">
                           
                             <i class="fas fa-caret-left p-0 dec-btn"></i>
                               <input class="form-control border-0 quantity-result" type="text" value="1">
@@ -180,7 +207,7 @@ let modalTemplate = product =>
 
                     <div class="row mb-2">
                       <div class="col-sm-6">
-                        <a class="but btn-dark btn-sm w-100 h-100 d-flex align-items-center justify-content-center mb-1 add-to-cart" href="cart.html">Add to cart</a>
+                        <a class="but btn-dark btn-sm w-100 h-100 d-flex align-items-center justify-content-center mb-1 add-to-cart" href="#!" data-id="${product.id}" data-price="${product.price}">Add to cart</a>
                       </div>
                       <div class="col-sm-6">
                         <a class="but btn-dark btn-sm w-100 h-100 d-flex align-items-center text-decoration mb-1" href="#!">Wishlist</a>
@@ -199,11 +226,13 @@ let modalTemplate = product =>
 // Chahge Quantity of product
 
 function renderModal() {
+
   modalWindow.querySelector('.inc-btn').addEventListener('click', event => {
     let val = event.target.previousElementSibling.value;
     val++;
     event.target.previousElementSibling.value = val;
   });
+
   modalWindow.querySelector('.dec-btn').addEventListener('click', event => {
     let val = event.target.nextElementSibling.value;
     if (val > 1) {
@@ -211,6 +240,12 @@ function renderModal() {
         }
     event.target.nextElementSibling.value = val;
   });
+
+  modalWindow.querySelector(".add-to-cart").addEventListener('click', event => {
+    let productId = event.target.dataset.id;
+    let price = event.target.dataset.price;
+    addProductToCart({ id: productId, price: price }, + modalWindow.querySelector(".quantity-result").value);
+  })
 }
 
 // 
@@ -236,7 +271,7 @@ function detailButton(products) {
       console.log(productId);
       let product = products.find(product => product.id == productId);
       toggelModal('block', product);
-      addToCartButton(cart);
+      // addToCartButton(cart);
       modalWindow.querySelector('.close').addEventListener('click', event => {
         event.preventDefault();
         toggelModal('none');
@@ -253,8 +288,17 @@ function saveCart(cart) {
 }
 
 function addProductToCart(product, amount = 1) {
-  let cartItem = { ...product, amount: amount };
-  cart = [...cart, cartItem];
+  let itemInCart = cart.some(element => element.id === product.id);
+  if (itemInCart) {
+    cart.forEach(item => {
+      if (item.id === product.id) {
+        item.amount += amount;
+      }
+    });
+  } else {
+    let cartItem = { ...product, amount: amount };
+    cart = [...cart, cartItem];
+  }
   saveCart(cart);
 }
 
@@ -285,7 +329,9 @@ document.addEventListener("DOMContentLoaded", () => {
 cart = Store.init('basket');
 
 // Load products
-document.querySelector(".catalog").innerHTML = populateProdactList(products);
+  if (showCase)
+    {
+    showCase.innerHTML = populateProdactList(products);
   
 
 // addToCartButtons
@@ -304,9 +350,15 @@ if (addToWishlistButtons) {
   });
 }
 
-
-
 //showCase (show modal window)
 detailButton(products);
+  }
+  
+  if (shoppingCartItems) {
+    shoppingCartItems.innerHTML = populateShoppingCart();
+    renderCart();
+  }
+    
+  
 
 });
