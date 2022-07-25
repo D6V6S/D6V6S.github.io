@@ -42,10 +42,10 @@
                         <ul class="navbar-nav">
                             <!-- Cart -->
                             <li class="nav-item"><a href="cart.html" class="nav-link nav-link-underline active"><i class="fa-solid fa-cart-shopping"></i>
-                                Cart <small class="text-gray fw-normal"> (2)</small></a></li> 
+                                Cart <small class="text-gray fw-normal"> (<span id="shopping-cart-value">0</span>)</small></a></li> 
                             
                             <!-- Wishlist -->
-                            <li class="nav-item"><a href="#!" class="nav-link nav-link-underline"><i class="fas fa-regular fa-heart text-gray fw-normal"></i><small class="text-gray fw-normal">(0)</small></a></li>
+                            <li class="nav-item"><a href="#!" class="nav-link nav-link-underline"><i class="fas fa-regular fa-heart text-gray fw-normal"></i><small class="text-gray fw-normal">(<span id="wish-list-value">0</span>)</small></a></li>
                             <!-- Sing in -->
                             <li class="nav-item"><a href="#login" class="nav-link nav-link-underline"><i class="fas fa-regular fa-user text-gray fw-normal"></i> Login</a></li>              
                         </ul>
@@ -101,9 +101,11 @@
                     <div class="card-body">
                     <h5 class="text-uppercase mb-4">Cart total</h5>
                     <ul class="list-unstyled mb-0">
-                        <li class="d-flex align-items-center justify-content-between"><strong class="text-uppercase small font-weight-bold">Subtotal</strong><span class="text-muted small">$250</span></li>
+                        <li class="d-flex align-items-center justify-content-between"><strong class="text-uppercase small font-weight-bold">Subtotal</strong><span class="text-muted small">$<span class="cart-subtotal">0</span></span></li>
                         <li class="border-bottom my-2"></li>
-                        <li class="d-flex align-items-center justify-content-between mb-4"><strong class="text-uppercase small font-weight-bold">Total</strong><span>$250</span></li>
+                        <li class="d-flex align-items-center justify-content-between"><strong class="text-uppercase small font-weight-bold">Taxes</strong><span class="text-muted small">$<span class="cart-taxes">0</span></span></li>
+                        <li class="border-bottom my-2"></li>
+                        <li class="d-flex align-items-center justify-content-between mb-4"><strong class="text-uppercase small font-weight-bold">Total</strong><span>$<span class="cart-total">0</span></span></li>
                         <li>
                         <form action="#">
                             <div class="input-group mb-0">

@@ -5,24 +5,45 @@ const showCase = document.querySelector(".catalog");
 const shoppingCartValue = document.getElementById('shopping-cart-value');
 const wishListValue = document.getElementById('wish-list-value');
 const shoppingCartItems = document.querySelector('.shopping-cart-items');
+const taxesValue = 0.2;
 
 let cart = [];
+let wishlist = [];
+let basket = [];
+
+
 
 class Store {
   static init(key) {
-    let basket = [];
+    
+    let initKey = [];
     try {
-      basket = Store.isset(key) ? Store.get(key) : Store.set(key, []);
+      initKey = Store.isset(key) ? Store.get(key) : Store.set(key, []);
     } catch (err) {
       if (err === QUOTA_EXCEEDED_ERR) {
         console.log("Local Storage Limited is exceeded");
       }
     }
-    return basket;
+    return initKey;
   }
+  
+  /*static init(key) {
+    // try {
+    //   Store.isset(key) ?? Store.set(key, []);
+    // } catch (err) {
+    //   if (err === QUOTA_EXCEEDED_ERR) {
+    //     console.log("Local Storage Limited is exceeded");
+    //   }
+    // }
+    return Store.get(key);
+  }*/
+
+
+  
   static set(key, value) {
     return localStorage.setItem(key, JSON.stringify(value));
   }
+  
   static get(key) {
     let value = localStorage.getItem(key);
     return value === null ? null : JSON.parse(value);
@@ -32,10 +53,6 @@ class Store {
   }
 }
 
-
-
-// console.log(typeof (cart));
-// console.log('Empty cart=', cart);
 
 
 
@@ -85,13 +102,10 @@ function populateProdactList(products) {
   return content;
 }
 
-// console.log(populateProdactList(products));
-
-
 
 function cartItemTemplate(item) {
     let product = products.find(product => product.id == item.id);
-    return ` <tr class="cart-item">
+    return ` <tr class="cart-item" id="id${product.id}">
     <th class="ps-0 py-3 border-light" scope="row">
       <div class="d-flex align-items-center"><a class="reset-anchor d-block animsition-link" href="detail.html"><img src="${product.image}" alt="${product.title}" width="70"></a>
         <div class="ms-3"><strong class="h6"><a class="reset-anchor animsition-link" href="detail.html">${product.title}</a></strong></div>
@@ -110,11 +124,68 @@ function cartItemTemplate(item) {
       </div>
     </td>
     <td class="p-3 align-middle border-light">
-      <p class="mb-0 small">$${item.amount*product.price}</p>
+      <p class="mb-0 small">$<span class="product-subtotal"></span></p>
     </td>
     <td class="p-3 align-middle border-light"><a class="reset-anchor trash" href="#!"><i class="fas fa-trash-alt small text-muted" data-id="${product.id}"></i></a></td>
   </tr>`;
 }
+
+
+
+
+function setCartTotal(cart) {
+  let tmpTotal = 0;
+  cart.map(item => {
+    tmpTotal = item.price * item.amount;
+    shoppingCartItems.querySelector(`#id${item.id} .product-subtotal`).textContent = parseFloat(tmpTotal.toFixed(2));
+  });
+
+  let cartSubtotal = parseFloat(cart.reduce((previous, current) => previous + current.price * current.amount, 0).toFixed(2));
+  let cartTaxes = parseFloat(cartSubtotal * taxesValue).toFixed(2);
+  let cartTotal = parseFloat(Number(cartSubtotal) + Number(cartTaxes)).toFixed(2);
+
+  document.querySelector('.cart-subtotal').textContent = cartSubtotal;
+  document.querySelector('.cart-taxes').textContent = cartTaxes;
+  document.querySelector('.cart-total').textContent = cartTotal;
+    
+}
+
+
+
+//wishlist add --start
+
+function saveWishList(wishlist){
+    Store.set('wishlist', wishlist);
+}
+
+function amountWishListItems(wishlist){
+  wishListValue.textContent = wishlist.length;
+    if(+wishListValue.textContent > 0) {
+        wishListValue.classList.add('fw-bold');
+        wishListValue.style = "color:red;";
+    }
+}
+
+function addProductToWishList(product) {
+    let inWishList = wishlist.some(element => element.id === product.id);
+
+    if(!inWishList) wishlist = [...wishlist, product];
+    saveWishList(wishlist);
+    amountWishListItems(wishlist);
+}
+
+function addToWishListButton() {
+    let addToWishListButtons = document.querySelectorAll('.add-to-wish-list');
+    addToWishListButtons.forEach((element) => {             
+        element.addEventListener('click', (event) => {
+            let productId = event.target.closest('.btn-block').dataset.id;
+            let price = event.target.closest('.btn-block').dataset.price;
+            addProductToWishList({id: productId, price:price});   
+        });
+    });    
+}
+//wishlist add --end
+
 
 const filterItem = (cart, id) => cart.filter(item => item.id !== id);
 const findItem = (cart, id) => cart.find(item => item.id == id);
@@ -123,7 +194,9 @@ function renderCart() {
   shoppingCartItems.addEventListener('click', event => {
     if (event.target.classList.contains('fa-trash-alt')) {
       cart = filterItem(cart, event.target.dataset.id);
+      setCartTotal(cart);
       saveCart(cart);
+      amountCartItems(cart);
       event.target.closest('.cart-item').remove();
 
     } else if (event.target.classList.contains('inc-btn')) {
@@ -131,19 +204,23 @@ function renderCart() {
       console.log(findItem(cart, event.target.dataset.id));
       tmpItem.amount += 1;
       event.target.previousElementSibling.value = tmpItem.amount;
+      setCartTotal(cart);
       saveCart(cart);
+      amountCartItems(cart);
 
     } else if (event.target.classList.contains('dec-btn')) {
       let tmpItem = findItem(cart, event.target.dataset.id);
-      if (tmpItem !== undefined && tmpItem.amount > 1) {
-        tmpItem.amount -= 1; 
-        event.target.nextElementSibling.value = tmpItem.amount; 
-        
-      } else {
-        cart = filterItem(cart, event.target.dataset.id);
-        event.target.closest('.cart-item').remove();
-      }
+        if (tmpItem !== undefined && tmpItem.amount > 1) {
+          tmpItem.amount -= 1; 
+          event.target.nextElementSibling.value = tmpItem.amount; 
+          
+        } else {
+          cart = filterItem(cart, event.target.dataset.id);
+          event.target.closest('.cart-item').remove();
+        }
+      setCartTotal(cart);
       saveCart(cart);
+      amountCartItems(cart);
     }
   })
 }
@@ -156,7 +233,7 @@ function populateShoppingCart() {
 
 
 
-// Unit 4 modal
+
 
 // show rating of product (stars)
 
@@ -210,7 +287,7 @@ let modalTemplate = product =>
                         <a class="but btn-dark btn-sm w-100 h-100 d-flex align-items-center justify-content-center mb-1 add-to-cart" href="#!" data-id="${product.id}" data-price="${product.price}">Add to cart</a>
                       </div>
                       <div class="col-sm-6">
-                        <a class="but btn-dark btn-sm w-100 h-100 d-flex align-items-center text-decoration mb-1" href="#!">Wishlist</a>
+                        <a class="but btn-dark btn-sm w-100 h-100 d-flex align-items-center text-decoration mb-1 add-to-wish-list" href="#!">Wishlist</a>
                       </div>
                     </div>         
                   </div>
@@ -268,10 +345,8 @@ function detailButton(products) {
   detailButtons.forEach(button => {
     button.addEventListener("click", event => {
       let productId = event.target.closest('.btn-block').dataset.id;
-      console.log(productId);
       let product = products.find(product => product.id == productId);
       toggelModal('block', product);
-      // addToCartButton(cart);
       modalWindow.querySelector('.close').addEventListener('click', event => {
         event.preventDefault();
         toggelModal('none');
@@ -287,6 +362,17 @@ function saveCart(cart) {
   Store.set('basket', cart);
 }
 
+function amountCartItems(cart) {
+  if (cart)
+    shoppingCartValue.textContent = cart.reduce((prev, cur) => prev + cur.amount, 0);
+  
+  if (+shoppingCartValue.textContent > 0) {
+      shoppingCartValue.classList.add('fw-bold');
+      shoppingCartValue.style = "color:red;";
+    }
+      
+}
+
 function addProductToCart(product, amount = 1) {
   let itemInCart = cart.some(element => element.id === product.id);
   if (itemInCart) {
@@ -300,6 +386,7 @@ function addProductToCart(product, amount = 1) {
     cart = [...cart, cartItem];
   }
   saveCart(cart);
+  amountCartItems(cart);
 }
 
 function addToCartButton(cart) {
@@ -308,13 +395,8 @@ function addToCartButton(cart) {
     element.addEventListener('click', (event) => {
       let productId = event.target.closest('.btn-block').dataset.id;
       let price = event.target.closest('.btn-block').dataset.price;
-      console.log(productId);
-      console.log(price);
       addProductToCart({ id: productId, price: price });
 
-      shoppingCartValue.textContent = +shoppingCartValue.textContent + 1;
-      shoppingCartValue.classList.add('fw-bold');
-      shoppingCartValue.style = "color:red;";
     });
   });
 }
@@ -326,38 +408,39 @@ function addToCartButton(cart) {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-cart = Store.init('basket');
+  cart = Store.init('basket');
+
+  wishlist = Store.init('wishlist');
+
+
+  amountCartItems(cart);
+  amountWishListItems(wishlist);
+
 
 // Load products
-  if (showCase)
-    {
-    showCase.innerHTML = populateProdactList(products);
-  
+if (showCase)
+  {
+  showCase.innerHTML = populateProdactList(products);
 
 // addToCartButtons
 addToCartButton(cart);
-
-// addToWishlistButtons 
-let addToWishlistButtons = document.querySelectorAll('.add-to-wish-list');
   
-if (addToWishlistButtons) {
-  addToWishlistButtons.forEach(function (element) {
-    element.addEventListener('click', function () {
-    wishListValue.textContent = +wishListValue.textContent + 1;
-    wishListValue.classList.add('fw-bold');
-    wishListValue.style = "color:red;";
-    });  
-  });
-}
-
 //showCase (show modal window)
 detailButton(products);
-  }
+
+// addToWishlistButtons
+  addToWishListButton();
   
-  if (shoppingCartItems) {
-    shoppingCartItems.innerHTML = populateShoppingCart();
-    renderCart();
   }
+
+//Order cart
+
+if (shoppingCartItems) {
+  shoppingCartItems.innerHTML = populateShoppingCart();
+  setCartTotal(cart);
+  renderCart();
+
+}
     
   
 
