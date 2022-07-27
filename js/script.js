@@ -6,6 +6,7 @@ const shoppingCartValue = document.getElementById('shopping-cart-value');
 const wishListValue = document.getElementById('wish-list-value');
 const shoppingCartItems = document.querySelector('.shopping-cart-items');
 const taxesValue = 0.2;
+const categoriesList = document.querySelector('.categories-list');
 
 let cart = [];
 let wishlist = [];
@@ -402,24 +403,110 @@ function addToCartButton(cart) {
 }
 
 
+function distinctCategories(products) {
+  let mapped = [...products.map(item => item.category)];
+  // console.log(mapped);
 
+  // let distinct = [];
+  // mapped.forEach(item => {
+  //   if (!(item.id in distinct)) distinct.push(item)
+  // });
+  // console.log(distinct);
+
+  let distinct = Object.values(mapped.reduce((item, { id, name }) => {
+    let key = `${id}_${name}`;
+    item[key] = item[key] || { id, name, count: 0 };
+    item[key].count++;
+    return item;
+  }, {}));
+  
+  return distinct;
+}
+
+function categoryTemplate(category) {
+  return `
+    <li class="mb-2 d-flex justify-content-between">
+    <a href="#!" class="resset-anchor category-item" data-category="${category.name}" data-category-id"${category.id}">${category.name}</a>
+    <span class="badge text-gray">${category.count}</span>
+    </li>
+    `;
+}
+
+function populateCategories(categories) {
+  document.querySelector('.all-categories').textContent = categories.length;
+  let result = '';
+  categories.forEach(item => result += categoryTemplate(item));
+  return result;
+}
+
+
+
+
+function renderCategory(selector, products) {
+  const categoriesAll = document.querySelector('.categories');
+  categoriesAll.addEventListener('click', () => {
+    showCase.innerHTML = populateProdactList(products);
+    addToCartButton(cart);
+    detailButton(products);
+    addToWishListButton();
+  });
+
+  const categoryItem = document.querySelectorAll(selector);
+  categoryItem.forEach(item => item.addEventListener('click', e => {
+    e.preventDefault();
+    if (e.target.classList.contains('category-item')) {
+      const category = e.target.dataset.category;
+      const categoryFilter = items => items.filter(item => item.category.name.includes(category));
+      showCase.innerHTML = populateProdactList(categoryFilter(products));
+    } else {
+      showCase.innerHTML = populateProdactList(products);
+    }
+    addToCartButton(cart);
+    detailButton(products);
+    addToWishListButton();
+  }))
+}
+
+
+//carusel
+
+const carouselItemTemplate = data => `<div class="slide carousel-item" >
+    <a class="category-item" href="#!" data-category="${data.name}">
+    <img src="./img/slider/${data.id}.jpg" alt="">
+    <strong class="category-item category-item-title" data-category="${data.name}">${data.name}</strong>
+    </a>
+    </div>`;
+
+function makeCarousel(items) {
+  let res = "";
+  items.forEach(item => res += carouselItemTemplate(item));
+  res += res;
+  document.querySelector('.slide-track').innerHTML = res;
+}
+
+ 
 
 //after loading page
 
 document.addEventListener("DOMContentLoaded", () => {
 
   cart = Store.init('basket');
-
   wishlist = Store.init('wishlist');
-
-
+  
   amountCartItems(cart);
   amountWishListItems(wishlist);
+
+//carusel
+if (document.querySelector(".carusel")) {
+  let distingCategoryItem = distinctCategories(products);
+  makeCarousel(distingCategoryItem);
+  renderCategory('.carousel-item', products);
+  }
 
 
 // Load products
 if (showCase)
-  {
+{
   showCase.innerHTML = populateProdactList(products);
 
 // addToCartButtons
@@ -431,10 +518,17 @@ detailButton(products);
 // addToWishlistButtons
   addToWishListButton();
   
-  }
+}
 
-//Order cart
 
+  
+if (categoriesList) {
+  categoriesList.innerHTML = populateCategories(distinctCategories(products));
+  renderCategory(".categories-list", products);
+
+}
+
+//Order cart  
 if (shoppingCartItems) {
   shoppingCartItems.innerHTML = populateShoppingCart();
   setCartTotal(cart);

@@ -1839,6 +1839,30 @@ textarea {
 }
 
 
+.category-item{
+    display: block;
+    position: relative;
+}
+
+.category-item img{
+    text-replace: all .3s;
+}
+
+.category-item-title{
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: #212131;
+    background-color: white;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%, -50%);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.075);
+}
+
 
 /* modal */
 
