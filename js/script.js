@@ -487,12 +487,14 @@ function makeCarousel(items) {
 
 //================
 
-let currentProducts = [];
+// let currentProducts = [];
 
-const filteredCurrentProducts = (value) => {
-  currentProducts = products.filter(product => product.badge.title.includes(value));
-  return currentProducts;
-}
+// const filteredCurrentProducts = (value) => {
+//   console.log(value);
+//   currentProducts = products.filter(product => product.badge.title.includes(value));
+//   console.log(currentProducts);
+//   return currentProducts;
+// }
 
 //===============
 
@@ -523,7 +525,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fetchProducts('https://my-json-server.typicode.com/D6V6S/db/products')
     .then(products => {
-    console.log(products)
+    //console.log(products)
 
 
   cart = Store.init('basket');
@@ -540,6 +542,19 @@ if (document.querySelector(".carusel")) {
   renderCategory('.carousel-item', products);
   }
 
+      
+      
+let currentProducts = [];
+
+const filteredCurrentProducts = (value) => {
+  console.log(value);
+  currentProducts = products.filter(product => product.badge.title.includes(value));
+  console.log(currentProducts);
+  return currentProducts;
+}
+   
+      
+      
   currentProducts = products;
 
   // checkbox show only
@@ -581,7 +596,8 @@ if (document.querySelector(".carusel")) {
         }
         if (values.length == 0) {
           currentProducts = products;
-          showCase.innerHTML = populateProdactList(currentProducts);
+          
+          showCase.innerHTML = populateProdactList(products);
         }
           })
     })
