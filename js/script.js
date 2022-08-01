@@ -472,7 +472,7 @@ function renderCategory(selector, products) {
 
 const carouselItemTemplate = data => `<div class="slide carousel-item" >
     <a class="category-item" href="#!" data-category="${data.name}">
-    <img src="./img/slider/${data.id}.jpg" alt="">
+    <img src="https://d6v6s.github.io/img/product/product-${data.id}.jpg" alt="">
     <strong class="category-item category-item-title" data-category="${data.name}">${data.name}</strong>
     </a>
     </div>`;
@@ -485,17 +485,53 @@ function makeCarousel(items) {
 }
 
 
+//================
+
+let currentProducts = [];
+
+const filteredCurrentProducts = (value) => {
+  currentProducts = products.filter(product => product.badge.title.includes(value));
+  return currentProducts;
+}
+
+//===============
+
+function fetchProducts(url) {
+  return fetch(url, {
+    method: 'GET',
+    headers: {'Content-Type': 'application/json'}
+  })
+    .then(response => {
+      if (response.status >= 400) {
+        return response.json().then(err => {
+          const error = new Error('Something went wrong')
+          error.data = MediaError
+          throw error
+      })
+      }
+      return response.json();
+  })
+}
+
+//======
+
  
 
 //after loading page
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  fetchProducts('https://my-json-server.typicode.com/D6V6S/db/products')
+    .then(products => {
+    console.log(products)
+
+
   cart = Store.init('basket');
   wishlist = Store.init('wishlist');
-  
   amountCartItems(cart);
   amountWishListItems(wishlist);
+
+
 
 //carusel
 if (document.querySelector(".carusel")) {
@@ -503,6 +539,8 @@ if (document.querySelector(".carusel")) {
   makeCarousel(distingCategoryItem);
   renderCategory('.carousel-item', products);
   }
+
+  currentProducts = products;
 
   // checkbox show only
   const showOnly = document.querySelector(".show-only");
@@ -527,19 +565,25 @@ if (document.querySelector(".carusel")) {
       item.addEventListener('change', e => {
         if (e.target.checked) {
           values.push(item.value);
-          console.log(values);
-          showCase.innerHTML = values.map(value => populateProdactList(products.filter(product => product.badge.title.includes(value)))).join(" ");
+          // console.log(values);
+          showCase.innerHTML = values.map(value => populateProdactList(filteredCurrentProducts(value))).join(" ");
 
         } else {
           if (values != []) {
-            values.pop(item.value);
-            console.log(values);
-            showCase.innerHTML = values.map(value => populateProdactList(products.filter(product => product.badge.title.includes(value)))).join(" ");
+            // values.pop(item.value);
+            let index = values.indexOf(item.value);
+            if (index !== -1) {
+              values.splice(index, 1);
+            }
+            // console.log(values);
+            showCase.innerHTML = values.map(value => populateProdactList(filteredCurrentProducts(value))).join(" ");
           } 
         }
-        if (values.length == 0)
-           showCase.innerHTML = populateProdactList(products); 
-      })
+        if (values.length == 0) {
+          currentProducts = products;
+          showCase.innerHTML = populateProdactList(currentProducts);
+        }
+          })
     })
   }
 
@@ -573,16 +617,16 @@ if (showCase)
   selectPicker.addEventListener('change', function () {
     switch (this.value) {
       case 'low-high':
-        showCase.innerHTML = populateProdactList(products.sort(compare('price', 'asc')));
+        showCase.innerHTML = populateProdactList(currentProducts.sort(compare('price', 'asc')));
         break;
       case 'high-low':
-        showCase.innerHTML = populateProdactList(products.sort(compare('price', 'desc')));
+        showCase.innerHTML = populateProdactList(currentProducts.sort(compare('price', 'desc')));
         break;
       case 'popularity':
-        showCase.innerHTML = populateProdactList(products.sort(compare('stars', 'desc')));
+        showCase.innerHTML = populateProdactList(currentProducts.sort(compare('stars', 'desc')));
         break;
       default:
-        showCase.innerHTML = populateProdactList(products.sort(compare('id', 'asc')));
+        showCase.innerHTML = populateProdactList(currentProducts.sort(compare('id', 'asc')));
         break;
     }
   })
@@ -617,6 +661,6 @@ if (shoppingCartItems) {
 
 }
     
-  
+ }); //end fetch 
 
 });

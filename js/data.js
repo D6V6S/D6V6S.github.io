@@ -5,7 +5,7 @@ let products = [
       title: "Sale",
       bg: "sale"
     },
-    image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-1.37a0a89c.jpg",
+    image: "https://d6v6s.github.io/img/product/product-1.jpg",
     title: "Kui Ye Chen’s AirPods",
     price: 250,
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
@@ -21,7 +21,7 @@ let products = [
         title: "",
         bg: ""
     },
-    image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-2.1adefbd6.jpg",
+    image: "https://d6v6s.github.io/img/product/product-2.jpg",
     title: "Air Jordan 12 gym red",
     price: 300.33,
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
@@ -38,7 +38,7 @@ let products = [
             title: "New",
             bg: "new"
         },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-3.e4af5b82.jpg",
+        image: "https://d6v6s.github.io/img/product/product-3.jpg",
         title: "Cyan cotton t-shirt",
         price: 30,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
@@ -54,7 +54,7 @@ let products = [
             title: "",
             bg: ""
         },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-4.719c3a60.jpg",
+        image: "https://d6v6s.github.io/img/product/product-4.jpg",
         title: "Timex Unisex Originals",
         price: 350,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
@@ -70,7 +70,7 @@ let products = [
             title: "Sale",
             bg: "sale"
         },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-5.aff049a7.jpg",
+        image: "https://d6v6s.github.io/img/product/product-5.jpg",
         title: "Red digital smartwatch",
         price: 150,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
@@ -86,7 +86,7 @@ let products = [
             title: "",
             bg: ""
         },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-6.c4210d28.jpg",
+        image: "https://d6v6s.github.io/img/product/product-6.jpg",
         title: "Nike air max 95",
         price: 250,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
@@ -102,7 +102,7 @@ let products = [
             title: "Sold",
             bg: "sold"
         },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-7.1f4b5e9b.jpg",
+        image: "https://d6v6s.github.io/img/product/product-7.jpg",
         title: "Joemalone Women prefume",
         price: 25,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
@@ -118,7 +118,7 @@ let products = [
             title: "New",
             bg: "new"
         },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-8.d7432880.jpg",
+        image: "https://d6v6s.github.io/img/product/product-8.jpg",
         title: "Apple Watch",
         price: 350,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
@@ -134,7 +134,7 @@ let products = [
             title: "Sold",
             bg: "sold"
         },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-9.7bc0d11d.jpg",
+        image: "https://d6v6s.github.io/img/product/product-9.jpg",
         title: "Men silver Byron Watch",
         price: 351,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
@@ -150,7 +150,7 @@ let products = [
             title: "New",
             bg: "new"
         },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-10.a2749b0f.jpg",
+        image: "https://d6v6s.github.io/img/product/product-10.jpg",
         title: "Ploaroid one step camera",
         price: 451,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
@@ -167,7 +167,7 @@ let products = [
             title: "",
             bg: ""
         },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-11.0e27b424.jpg",
+        image: "https://d6v6s.github.io/img/product/product-11.jpg",
         title: "Gray Nike running shoes",
         price: 151,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
@@ -185,7 +185,7 @@ let products = [
             title: "New",
             bg: "new"
         },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-12.1f20a117.jpg",
+        image: "https://d6v6s.github.io/img/product/product-12.jpg",
         title: "Black DSLR lense",
         price: 51,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
