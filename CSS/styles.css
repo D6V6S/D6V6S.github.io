@@ -74,6 +74,18 @@ body {
     background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
 }
 
+.bg-new {
+    background-color: green !important;
+}
+
+.bg-sale {
+    background-color: red !important;
+}
+
+.bg-sold {
+    background-color: gold !important;
+}
+
 /* navigation style*/
 
 nav{
@@ -192,6 +204,28 @@ h2,
 h6,
 .h6 {
     font-size: 1rem;
+}
+
+/* badge */
+
+.badge {
+    display: inline-block;
+    padding: .35em .65em;
+    font-size: .8em;
+    font-weight: 400;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0;
+}
+
+.product .badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
 }
 
 /* table */
@@ -1804,6 +1838,30 @@ textarea {
     outline: none;
 }
 
+
+.category-item{
+    display: block;
+    position: relative;
+}
+
+.category-item img{
+    text-replace: all .3s;
+}
+
+.category-item-title{
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: #212131;
+    background-color: white;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%, -50%);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.075);
+}
 
 
 /* modal */

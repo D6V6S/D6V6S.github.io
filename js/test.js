@@ -95,6 +95,7 @@ if (!isNaN(x)) {
 }
 */
 
+/*
 var x = prompt("Enter x=");
 console.log("x=", x);
 var y = prompt("Enter y=");
@@ -109,10 +110,10 @@ if (x != '', x != '') {
                 case "*": alert("x * y =" + (x * y)); break;
                 case "/":
                     if (y == '0') {
-                        alert("Division by 0!");
+                        alert("ERROR! Division by 0!");
                     } else {
                         alert("x / y =" + (x / y));
-                    }; break;
+                    } break;
                 
                 default: alert("Непевна операція!"); break;
             }
@@ -126,4 +127,12 @@ if (x != '', x != '') {
 }else {
     alert("ERROR! Value not enter.");
 }
+*/
 
+let obj = {
+    name: "My Name",
+    price: 123
+};
+
+console.log(document);
+console.log(typeof(document));
