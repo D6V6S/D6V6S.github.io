@@ -105,8 +105,9 @@ function populateProdactList(products) {
 
 
 function cartItemTemplate(item) {
-    let product = products.find(product => product.id == item.id);
-    return ` <tr class="cart-item" id="id${product.id}">
+
+      let product = products.find(product => product.id == item.id);
+      return ` <tr class="cart-item" id="id${product.id}">
     <th class="ps-0 py-3 border-light" scope="row">
       <div class="d-flex align-items-center"><a class="reset-anchor d-block animsition-link" href="detail.html"><img src="${product.image}" alt="${product.title}" width="70"></a>
         <div class="ms-3"><strong class="h6"><a class="reset-anchor animsition-link" href="detail.html">${product.title}</a></strong></div>
@@ -129,6 +130,7 @@ function cartItemTemplate(item) {
     </td>
     <td class="p-3 align-middle border-light"><a class="reset-anchor trash" href="#!"><i class="fas fa-trash-alt small text-muted" data-id="${product.id}"></i></a></td>
   </tr>`;
+  
 }
 
 
